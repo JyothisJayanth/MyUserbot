@@ -23,9 +23,9 @@ async def _(event):
 
         return
 
-    animation_interval = 10
+    animation_interval = 0.3
 
-    animation_ttl = range(0, 12)
+    animation_ttl = range(0, 62)
 
    # input_str = event.pattern_match.group(1)
 
@@ -35,16 +35,66 @@ async def _(event):
 
     animation_chars = [
         
-            "**Heroku Connecting To Latest Github Build (Custom UserBot)**",
-            "**Build started by user** **{DEFAULTUSER}**",
-            "**Deploy** `535a74f0` **by user** **{DEFAULTUSER}**",
-            "**Restarting Heroku Server...**",
-            "**State changed from up to starting**",    
-            "**Stopping all processes with SIGTERM**",
-            "**Process exited with** `status 143`",
-            "**Starting process with command** `python3 -m stdborg`",
-            "**State changed from starting to up**",
+            "**/Heroku Connecting To Latest Github Build (Custom UserBot)**",
+            "**|Heroku Connecting To Latest Github Build (Custom UserBot)**"
+            "**\Heroku Connecting To Latest Github Build (Custom UserBot)**"
+            "**-Heroku Connecting To Latest Github Build (Custom UserBot)**"
+            "**/Heroku Connecting To Latest Github Build (Custom UserBot)**"
+            "**|Heroku Connecting To Latest Github Build (Custom UserBot)**"
+            "**\Heroku Connecting To Latest Github Build (Custom UserBot)**"
+            "**-Heroku Connecting To Latest Github Build (Custom UserBot)**"
+            "**/Heroku Connecting To Latest Github Build (Custom UserBot)**"
+            "**|Heroku Connecting To Latest Github Build (Custom UserBot)**"
+            "**\Heroku Connecting To Latest Github Build (Custom UserBot)**"
+            "**-Heroku Connecting To Latest Github Build (Custom UserBot)**"
+            "**/Build started by user** **{DEFAULTUSER}**",
+            "**|Build started by user** **{DEFAULTUSER}**",
+            "**\Build started by user** **{DEFAULTUSER}**",
+            "**-Build started by user** **{DEFAULTUSER}**",
+            "**/Build started by user** **{DEFAULTUSER}**",
+            "**|Build started by user** **{DEFAULTUSER}**",
+            "**\Build started by user** **{DEFAULTUSER}**",
+            "**-Build started by user** **{DEFAULTUSER}**",
+            "**/Build started by user** **{DEFAULTUSER}**",
+            "**|Build started by user** **{DEFAULTUSER}**",
+            "**\Build started by user** **{DEFAULTUSER}**",
+            "**-Build started by user** **{DEFAULTUSER}**",
+            "**/Build started by user** **{DEFAULTUSER}**",
+            "**|Deploy** `535a74f0` **by user** **{DEFAULTUSER}**",
+            "**\Deploy** `535a74f0` **by user** **{DEFAULTUSER}**",
+            "**-Deploy** `535a74f0` **by user** **{DEFAULTUSER}**",
+            "**/Deploy** `535a74f0` **by user** **{DEFAULTUSER}**",
+            "**|Deploy** `535a74f0` **by user** **{DEFAULTUSER}**",
+            "**\Restarting Heroku Server...**",
+            "**-Restarting Heroku Server...**",
+            "**/Restarting Heroku Server...**",
+            "**|Restarting Heroku Server...**",
+            "**\Restarting Heroku Server...**",
+            "**-Restarting Heroku Server...**",
+            "**/Restarting Heroku Server...**",
+            "**|Restarting Heroku Server...**",
+            "**\State changed from up to starting**",
+            "**-State changed from up to starting**",
+            "**/State changed from up to starting**",
+            "**|Stopping all processes with SIGTERM**",
+            "**\Stopping all processes with SIGTERM**",
+            "**-Stopping all processes with SIGTERM**",
+            "**/Process exited with** `status 143`",
+            "**|Process exited with** `status 143`",
+            "**\Process exited with** `status 143`",
+            "**-Starting process with command** `python3 -m stdborg`",
+            "**/Starting process with command** `python3 -m stdborg`",
+            "**|Starting process with command** `python3 -m stdborg`",
+            "**\Starting process with command** `python3 -m stdborg`",
+            "**-State changed from starting to up**",
+            "**/State changed from starting to up**",
+            "**|State changed from starting to up**",
             "__INFO:UniBorg:Logged in as 557667062__",
+            "__INFO:UniBorg:Logged in as 557667062__",
+            "__INFO:UniBorg:Logged in as 557667062__",
+            "__INFO:UniBorg:Logged in as 557667062__",
+            "__INFO:UniBorg:Successfully loaded all plugins__",
+            "__INFO:UniBorg:Successfully loaded all plugins__",
             "__INFO:UniBorg:Successfully loaded all plugins__",
             "**Build Succeeded**"
 
