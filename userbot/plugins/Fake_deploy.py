@@ -36,17 +36,17 @@ async def _(event):
     animation_chars = [
         
             "**/Heroku Connecting To Latest Github Build (Custom UserBot)**",
-            "**|Heroku Connecting To Latest Github Build (Custom UserBot)**"
-            "**\Heroku Connecting To Latest Github Build (Custom UserBot)**"
-            "**-Heroku Connecting To Latest Github Build (Custom UserBot)**"
-            "**/Heroku Connecting To Latest Github Build (Custom UserBot)**"
-            "**|Heroku Connecting To Latest Github Build (Custom UserBot)**"
-            "**\Heroku Connecting To Latest Github Build (Custom UserBot)**"
-            "**-Heroku Connecting To Latest Github Build (Custom UserBot)**"
-            "**/Heroku Connecting To Latest Github Build (Custom UserBot)**"
-            "**|Heroku Connecting To Latest Github Build (Custom UserBot)**"
-            "**\Heroku Connecting To Latest Github Build (Custom UserBot)**"
-            "**-Heroku Connecting To Latest Github Build (Custom UserBot)**"
+            "**|Heroku Connecting To Latest Github Build (Custom UserBot)**", 
+            "**\Heroku Connecting To Latest Github Build (Custom UserBot)**", 
+            "**-Heroku Connecting To Latest Github Build (Custom UserBot)**", 
+            "**/Heroku Connecting To Latest Github Build (Custom UserBot)**", 
+            "**|Heroku Connecting To Latest Github Build (Custom UserBot)**", 
+            "**\Heroku Connecting To Latest Github Build (Custom UserBot)**", 
+            "**-Heroku Connecting To Latest Github Build (Custom UserBot)**", 
+            "**/Heroku Connecting To Latest Github Build (Custom UserBot)**", 
+            "**|Heroku Connecting To Latest Github Build (Custom UserBot)**", 
+            "**\Heroku Connecting To Latest Github Build (Custom UserBot)**", 
+            "**-Heroku Connecting To Latest Github Build (Custom UserBot)**", 
             "**/Build started by user** **{DEFAULTUSER}**",
             "**|Build started by user** **{DEFAULTUSER}**",
             "**\Build started by user** **{DEFAULTUSER}**",
@@ -104,4 +104,4 @@ async def _(event):
 
             await asyncio.sleep(animation_interval)
 
-            await event.edit(animation_chars[i % 12])
+            await event.edit(animation_chars[i % 40])
