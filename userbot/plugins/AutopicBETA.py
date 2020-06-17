@@ -1,9 +1,10 @@
 """
 Srt Automatic Profile Pic.....
-Command: `.upp`
+Command: `.wpp`
 :::::Credits::::::
 1) Coded By: @WhySooSerious
 2) Ported By: @Tb0N3 (Legend)
+3) End Game Help By: nobody 
 4) Custom / Modified Plugin for some magical effects by this Legendary Guy @PhycoNinja13b 
 #curse: who ever edits this credit section will goto hell
 ⚠️DISCLAIMER⚠️
@@ -21,7 +22,7 @@ import shutil
 import random, re
 
 
-FONT_FILE_TO_USE = "http://telegramfiles.com/6391818/Caviar_Dreams_Bold.ttf"
+FONT_FILE_TO_USE = "/usr/DOWNLOADS/Caviar_Dreams_Bold (2).ttf"
 
 #Add telegraph media links of profile pics that are to be used
 TELEGRAPH_MEDIA_LINKS = ["https://telegra.ph/file/653fc27e3682bbf162909.jpg", #1
@@ -60,7 +61,7 @@ TELEGRAPH_MEDIA_LINKS = ["https://telegra.ph/file/653fc27e3682bbf162909.jpg", #1
                          "https://telegra.ph/file/f1b040c4c1bebf6e72e76.jpg",
                          "https://telegra.ph/file/783d45f0a273bfc3a782f.jpg"
                         ]
-@borg.on(admin_cmd(pattern="upp ?(.*)"))
+@borg.on(admin_cmd(pattern="wpp ?(.*)"))
 
 async def autopic(event):
     while True:
@@ -76,7 +77,7 @@ async def autopic(event):
     
         shutil.copy(downloaded_file_name, photo)
         im = Image.open(photo)
-        current_time = datetime.now().strftime("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n                                                    ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ \n                                                             Time: %H:%M \n                                                          Date: %d.%m.%y \n                                                   ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡")
+        current_time = datetime.now().strftime("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n                                                    ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ \n                                                             Time: %H:%M \n                                                          @WhySooSerious \n                                                   Date: %d.%m.%y \n                                                   ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡")
         img = Image.open(photo)
         drawn_text = ImageDraw.Draw(img)
         fnt = ImageFont.truetype(FONT_FILE_TO_USE, 36)
