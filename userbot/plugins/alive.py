@@ -16,6 +16,6 @@ async def amireallyalive(alive):
     await alive.edit("`──────▄▀▄─────▄▀▄ \n─────▄█░░▀▀▀▀▀░░█▄ \n─▄▄──█░░░░░░░░░░░█──▄▄ \n█▄▄█─█░░▀░░┬░░▀░░█─█▄▄█ \nYour bot is running\n\nTelethon version: 6.9.0\nPython: 3.7.3\n\n`"
                      f"`My Rightful OWNER`: {DEFAULTUSER}\n"
                      
-                     f"`Server HQ` : [Switch SUPERNAP Campus, Las Vegas](www.google.com)\n"
+                     f"`Server HQ` : [Switch SUPERNAP Campus, Las Vegas](https://telegra.ph/file/fd2b0fabaae61936f3442.jpg), link_preview=True\n"
                      "`Database Status: Databases functioning normally!\n\nAlways with you, MY MASTER!`\n"
                      "[Deploy this Userbot Now](https://github.com/JyothisJayanth/GujjuBot)")
