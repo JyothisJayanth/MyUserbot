@@ -17,4 +17,4 @@ async def amireallyalive(alive):
                      f"`My Rightful OWNER`: {DEFAULTUSER}\n"
                      
                      f"`Server HQ` : [Switch SUPERNAP Campus, Las Vegas](https://telegra.ph/file/fd2b0fabaae61936f3442.jpg),\n"
-                     "`Database Status: Databases functioning normally!\n\nAlways with you, MY MASTER!`\n".format(media_urls[0], (ms + ms_two)), link_preview=True) 
+                     "`Database Status: Databases functioning normally!\n\nAlways with you, MY MASTER!`\n".format, link_preview=True) 
