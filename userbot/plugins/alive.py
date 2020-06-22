@@ -18,4 +18,5 @@ pm_caption += "[Deploy this Userbot Now](https://github.com/JyothisJayanth/Gujju
 @borg.on(admin_cmd(pattern=r"alive"))
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
+    await alive.delete() 
     await borg.send_file(alive.chat_id, PM_IMG,caption=pm_caption)
