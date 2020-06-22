@@ -8,7 +8,7 @@ from userbot.utils import admin_cmd
 
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
-PM_IMG = "https://telegra.ph/file/fd2b0fabaae61936f3442.jpg"
+PM_IMG = "https://telegra.ph/file/83fa2fe1ff27f62c51bb8.jpg"
 pm_caption = "`Your Userbot is running\n\nTelethon version: 6.9.0\nPython: 3.7.3\n\n`"
 pm_caption += f"`My Rightful OWNER`: {DEFAULTUSER}\n\n"
 pm_caption += f"`Server HQ` : [Switch SUPERNAP Campus, Las Vegas](https://www.switch.com/about)\n"
