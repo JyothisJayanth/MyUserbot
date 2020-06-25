@@ -1,71 +1,34 @@
 #autobio for @WhySooSerious, Edit bio strings Amigo if u use this plugin, Or else u are cursed :)
 import asyncio
 import time
-from telethon import events
-import random, re
 from telethon.tl import functions
 from telethon.errors import FloodWaitError
-from uniborg.util import admin_cmd
+from userbot.utils import admin_cmd
 
 
-BIO_STRINGS = [
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🐵",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🙈",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🙉",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🙊",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🖕🐵🖕",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🐵",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🙈",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🙉",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🙊",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🖕🐵🖕",
-     "👉// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\",
-     "⬜️👉// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\",
-     "⬜️⬜️👉// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\",
-     "⬜️⬜️👉// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\",
-     "⬜️👉// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\",
-     "👉// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🐵",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🙈",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🙉",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🙊",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🖕🐵🖕",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🐵",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🙈",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🙉",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🙊",
-     "// No PMs | PM [without reason] = Block °-° | PC Gamer | Go Away \\🖕🐵🖕",
-
-]
+DEL_TIME_OUT = 60
 
 
-DEL_TIME_OUT = 1
-
-
-@borg.on(admin_cmd(pattern="monkeybio"))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="bio"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
     while True:
-        bro = random.randint(0, len(BIO_STRINGS) - 1)    
-        input_str = event.pattern_match.group(1)
-        Bio = BIO_STRINGS[bro]
-        DMY = time.strftime("%d.%m.%Y")
+        DMY = time.strftime("%d/%m/%Y")
         HM = time.strftime("%H:%M:%S")
-        bio = f"📅 {DMY} | No PMs | ⌚️ {HM}"
-        logger.info(Bio)
+        bio = f"No PMs ¦ I hope Today 📅 ({DMY}) is Good"
+        logger.info(bio)
         try:
             await borg(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
-                about=Bio
+                about=bio
             ))
         except FloodWaitError as ex:
             logger.warning(str(e))
             await asyncio.sleep(ex.seconds)
-         else:
-             logger.info(r.stringify())
-             await borg.send_message(  # pylint:disable=E0602
-                 Config.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
-                 "Successfully Changed Profile Bio"
-             )
+        # else:
+            # logger.info(r.stringify())
+            # await borg.send_message(  # pylint:disable=E0602
+            #     Config.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
+            #     "Successfully Changed Profile Bio"
+            # )
         await asyncio.sleep(DEL_TIME_OUT)
