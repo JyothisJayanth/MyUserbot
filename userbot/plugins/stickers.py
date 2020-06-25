@@ -53,8 +53,8 @@ async def _(event):
     #packname = f"JayukeStickers"
     #packshortname = f"GujjuBot_{userid}_ns"  # format: Uni_Borg_userid
     if userid == 919209968:
-        packname = f"@WhySooSerious's KanG PaC"
-        packshortname = "kangpacbywhysooserious"
+        packname = f"Random PaC by @WhySooSerious"
+        packshortname = "RandomPaC"
     elif userid ==631515786:
         packname = f"@vireso's fav pack"
         packshortname = "vireso_s_pack"
@@ -134,8 +134,8 @@ async def _(event):
                 while response.text == FILLED_UP_DADDY:
                     pack += 1
                     prevv = int(pack) - 1
-                    packname = f"{user.first_name}'s Ultroid Vol.{pack}"
-                    packshortname = f"Vol_{pack}_with_{user.first_name}"
+                    packname = "Random PaC 2 by @WhySooSerious"
+                    packshortname = "RandomPac2"
                     #if userid == 948408212:
                        # packname = f"{user.first_name}'s GujjuBot Vol.{pack}"
                        # packshortname = "Vol._{pack}_Jayu_ke_locker_me"
