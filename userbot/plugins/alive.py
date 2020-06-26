@@ -8,15 +8,15 @@ from userbot.utils import admin_cmd
 
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
-PM_IMG = "https://telegra.ph/file/83fa2fe1ff27f62c51bb8.jpg"
+PM_GIF = "https://telegra.ph/file/a6c374a64cb906ebdc4d6.mp4"
 pm_caption = "`Your Userbot is running\n\nTelethon version: 6.9.0\nPython: 3.7.3\n\n`"
-pm_caption += f"`My Rightful OWNER`: {DEFAULTUSER}\n\n"
-pm_caption += f"`Server HQ` : [Switch SUPERNAP Campus, Las Vegas](https://www.switch.com/about)\n"
-pm_caption += "`Database : Amazon Web Services \n\nAlways with you, MY MASTER!`\n"
+pm_caption += "`My Rightful OWNER`: **WRENCH**\n\n"
+pm_caption += "`Server HQ` : [Switch SUPERNAP, LA](https://www.switch.com/about)\n"
+pm_caption += "`Database : Amazon Web Services \n\n"
 pm_caption += "[@WhySooSerious](https://github.com/JyothisJayanth)"
 #@command(outgoing=True, pattern="^.alive$")
 @borg.on(admin_cmd(pattern=r"alive"))
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
     await alive.delete() 
-    await borg.send_file(alive.chat_id, PM_IMG,caption=pm_caption)
+    await borg.send_file(alive.chat_id, PM_GIF,caption=pm_caption)
