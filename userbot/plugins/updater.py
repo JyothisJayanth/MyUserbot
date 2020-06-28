@@ -16,15 +16,15 @@ IS_SELECTED_DIFFERENT_BRANCH = (
     "please check out to an official branch, and re-start the updater."
 )
 OFFICIAL_UPSTREAM_REPO = "https://github.com/JyothisJayanth/GujjuBot"
-BOT_IS_UP_TO_DATE = "the userbot is up-to-date."
+BOT_IS_UP_TO_DATE = "Master, I'm Up-to-Date!."
 NEW_BOT_UP_DATE_FOUND = (
-    "new update found for {branch_name}\n"
-    "changelog: \n\n{changelog}\n"
-    "updating ..."
+    "**New Update Found For** {branch_name}\n"
+    "\n\n{changelog}\n"
+    "Pulling Updates !!"
 )
 NEW_UP_DATE_FOUND = (
-    "new update found for {branch_name}\n"
-    "updating ..."
+    "**New update found for** {branch_name}\n"
+    "Updating And Restarting..."
 )
 REPO_REMOTE_NAME = "temponame"
 IFFUCI_ACTIVE_BRANCH_NAME = "master"
@@ -72,7 +72,7 @@ async def updater(message):
     )
 
     if not changelog:
-        await message.edit("Updating...")
+        await message.edit("Pulling Update From Branch **master** !!!!")
         await asyncio.sleep(8)
  
     message_one = NEW_BOT_UP_DATE_FOUND.format(
@@ -140,10 +140,9 @@ def generate_change_log(git_repo, diff_marker):
 
 async def deploy_start(bot, message, refspec, remote):
     await message.edit(RESTARTING_APP)
-    await message.edit("restarted! do `.alive` to check if I am online?\nIt will takes approximately 5 mins to update your userbot")
+    await message.edit("**The Latest Branch** `Master` **Has been Pushed \nRestarted! do `.alive` to check if I am online?\nIt will takes approximately 5 mins to update your userbot")
     await remote.push(refspec=refspec)
     await bot.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)
 
     
-
