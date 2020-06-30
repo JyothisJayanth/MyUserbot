@@ -7,13 +7,13 @@ from telethon.tl.functions.users import GetFullUserRequest
 from telethon import events, errors, functions, types
 from userbot import ALIVE_NAME
 from userbot.utils import admin_cmd
+from userbot import CMD_HELP
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
   WARN_PIC = "https://telegra.ph/file/82c595986872349e5ba1a.jpg"
 else:
   WARN_PIC = PMPERMIT_PIC
-
 PM_WARNS = {}
 PREV_REPLY_MESSAGE = {}
 
@@ -48,7 +48,21 @@ if Var.PRIVATE_GROUP_ID is not None:
                 await event.delete()
 
 
-    @command(pattern="^.block ?(.*)")
+      @bot.on(events.NewMessage(outgoing=True))
+    async def you_dm_niqq(event):
+        if event.fwd_from:
+            return
+        chat = await event.get_chat()
+        if event.is_private:
+            if not pmpermit_sql.is_approved(chat.id):
+                if not chat.id in PM_WARNS:
+                    pmpermit_sql.approve(chat.id, "outgoing")
+                    bruh = "__Added user to approved pms cuz outgoing message >~<__"
+                    rko = await borg.send_message(event.chat_id, bruh)
+                    await asyncio.sleep(3)
+                    await rko.delete()
+
+    @command(pattern="^.disapprove ?(.*)")
     async def approve_p_m(event):
         if event.fwd_from:
             return
