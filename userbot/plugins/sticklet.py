@@ -1,5 +1,5 @@
 # Random RGB Sticklet by @PhycoNinja13b
-# modified by @UniBorg
+# Re-Edited by @WhySooSerious
 
 import io
 import os
@@ -34,7 +34,7 @@ async def sticklet(event):
     draw = ImageDraw.Draw(image)
     fontsize = 230
 
-    FONT_FILE = await get_font_file(event.client, "@Gujju_Bot_Fonts")
+    FONT_FILE = await get_font_file(event.client, "@FontJunks")
 
     font = ImageFont.truetype(FONT_FILE, size=fontsize)
 
@@ -46,7 +46,7 @@ async def sticklet(event):
     draw.multiline_text(((512-width)/2,(512-height)/2), sticktext, font=font, fill=(R, G, B))
 
     image_stream = io.BytesIO()
-    image_stream.name = "GujjuBot.webp"
+    image_stream.name = "Junks.webp"
     image.save(image_stream, "WebP")
     image_stream.seek(0)
 
