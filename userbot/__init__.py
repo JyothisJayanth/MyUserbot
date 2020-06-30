@@ -1,9 +1,13 @@
+'''
+'''
 import os
 import sys
+import time
 from telethon.sessions import StringSession
 from telethon import TelegramClient
 
 from var import Var
+StartTime = time.time()
 
 os.system("pip install --upgrade pip")
 if Var.STRING_SESSION:
@@ -65,7 +69,8 @@ if bool(ENV):
 
     # Userbot logging feature switch.
     BOTLOG = sb(os.environ.get("BOTLOG", "False"))
-
+    LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
+    
     # Bleep Blop, this is a bot ;)
     PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 
@@ -93,15 +98,25 @@ if bool(ENV):
 
     ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 
+    # FedBan Premium Module
+    F_BAN_LOGGER_GROUP = os.environ.get("F_BAN_LOGGER_GROUP", None)
+
+# Heroku Credentials for updater.
+    HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "False"))
+    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
+    HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
+
+   
     # Youtube API key
     YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 
     # Default .alive name
     ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
     AUTONAME = os.environ.get("AUTONAME", None)
+    REDIRECTCHANNEL = os.environ.get("REDIRECTCHANNEL", None)
 
     # Time & Date - Country and Time Zone
-    COUNTRY = str(os.environ.get("COUNTRY", ""))
+    COUNTRY = str(os.environ.get("COUNTRY", "India"))
 
     TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
 
@@ -161,5 +176,3 @@ LASTMSG = {}
 CMD_HELP = {}
 ISAFK = False
 AFKREASON = None
-# End of PaperPlaneExtended Support Vars
-
