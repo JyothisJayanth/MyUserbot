@@ -1,10 +1,5 @@
 """Check if userbot alive. If you change these, you become the gayest gay such that even the gay world will disown you."""
-# thanks to @WhySooSerious 
-# thanks to @Sur_vivor  
-# final editing by leobrownlee
-
-
-
+# by @WhySooSerious
 """Check if userbot alive or not . 
 """
 import os
@@ -15,9 +10,6 @@ from userbot import ALIVE_NAME, CMD_HELP
 from userbot.utils import admin_cmd
 from telethon import version
 from platform import python_version, uname
-from telethon import events
-from datetime import datetime
-from userbot.utils import admin_cmd
 from userbot.__init__ import StartTime
 import time
 
@@ -51,21 +43,11 @@ def get_readable_time(seconds: int) -> str:
 
 
 
-
-
-
-
-#@command(pattern="^.ping$")
-@borg.on(admin_cmd(pattern="ping$"))
-async def _(event):
-    if event.fwd_from:
-        return
     start = datetime.now()
     await event.edit("oof!")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    uptime = get_readable_time((time.time() - StartTime))
-    await event.edit(f"🏓Ping speed: {ms}\nUptime: {uptime}")
+    uptime = get_readable_time((time.time() - StartTime)
 
 
 
@@ -82,12 +64,12 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars 
 
 mod_caption = "**Your Userbot is running**\n\n"
 mod_caption += "`SYSTEM STATUS\n\n`"
-mod_caption += f"`Python: {python_version()}\n\n`"
+mod_caption += f"`Python: {python_version()}\n`"
 mod_caption += f"`Telethon version: {version.__version__}\n`"
+mod_caption += f"`Ping speed: {ms}\nUserbot Uptime: {uptime}`\n"
 mod_caption += "`Server HQ` : [Switch SUPERNAP](https://www.switch.com/about), LA\n`"
-mod_caption += "`Database : Amazon Web Services`\n\n``"
+mod_caption += "`Database : Amazon Web Services`\n\n"
 mod_caption += "`My Rightful OWNER`: **WRENCH**\n\n"
-mod_caption += "`Bot was modified by:` leobrownlee and Sur_vivor\n\n"
 mod_caption += "[@WhySooSerious](https://github.com/JyothisJayanth)"
 
 #@command(outgoing=True, pattern="^.alive$")
