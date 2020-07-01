@@ -7,9 +7,12 @@ from userbot import LOAD_PLUG
 from userbot import CMD_LIST
 import re
 import logging
+import time
 import inspect
 
 def command(**args):
+    args["func"] = lambda e: e.via_bot_id is None
+    
     stack = inspect.stack()
     previous_stack_frame = stack[1]
     file_test = Path(previous_stack_frame.filename)
@@ -18,7 +21,7 @@ def command(**args):
         return print("stupidity at its best")
     else:
         pattern = args.get("pattern", None)
-        allow_sudo = args.get("allow_sudo", None)
+        allow_sudo = args.get("allow_sudo", False)
         allow_edited_updates = args.get('allow_edited_updates', False)
         args["incoming"] = args.get("incoming", False)
         args["outgoing"] = True
@@ -48,7 +51,7 @@ def command(**args):
                 pass
 
         if allow_sudo:
-            args["from_users"] = list(Var.SUDO_USERS)
+            args["from_users"] = list(Config.SUDO_USERS)
             # Mutually exclusive with outgoing (can only set one of either).
             args["incoming"] = True
         del allow_sudo
@@ -130,6 +133,8 @@ def remove_plugin(shortname):
         raise ValueError
 
 def admin_cmd(pattern=None, **args):
+    args["func"] = lambda e: e.via_bot_id is None
+    
     stack = inspect.stack()
     previous_stack_frame = stack[1]
     file_test = Path(previous_stack_frame.filename)
@@ -189,6 +194,8 @@ import datetime
 
 def register(**args):
     """ Register a new event. """
+    args["func"] = lambda e: e.via_bot_id is None
+    
     stack = inspect.stack()
     previous_stack_frame = stack[1]
     file_test = Path(previous_stack_frame.filename)
@@ -347,4 +354,3 @@ class Loader():
     def __init__(self, func=None, **args):
         self.Var = Var
         bot.add_event_handler(func, events.NewMessage(**args))
-
