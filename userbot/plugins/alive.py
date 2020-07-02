@@ -1,17 +1,27 @@
 """Check if userbot alive. If you change these, you become the gayest gay such that even the gay world will disown you."""
 # by @WhySooSerious
-"""Check if userbot alive or not . 
-"""
+
 import os
 import asyncio
 from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins
-from userbot import ALIVE_NAME, CMD_HELP
+from userbot import ALIVE_NAME, CMD_HELP, ALIVE_PIC
 from userbot.utils import admin_cmd
 from telethon import version
 from platform import python_version, uname
 from userbot.__init__ import StartTime
 import time
+
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
+
+
+
+ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
+if ALIVE_PIC is None:
+  ALIVE_GIF = "https://telegra.ph/file/a6c374a64cb906ebdc4d6.mp4"
+else:
+  ALIVE_GIF = ALIVE_PIC
+
 
 def get_readable_time(seconds: int) -> str:
     count = 0
@@ -48,10 +58,6 @@ def get_readable_time(seconds: int) -> str:
     uptime = get_readable_time((time.time() - StartTime)
 
 
-
-
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
-ALIVE_GIF = "https://telegra.ph/file/a6c374a64cb906ebdc4d6.mp4"
 mod_caption = "**Your Userbot is running**\n\n"
 mod_caption += "`SYSTEM STATUS\n\n`"
 mod_caption += f"`Python: {python_version()}\n`"
