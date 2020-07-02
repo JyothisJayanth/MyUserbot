@@ -61,7 +61,7 @@ uptime = get_readable_time((time.time() - StartTime))
 
 
 
-mod_caption = "**Your Userbot is running**\n\n""
+mod_caption = "**Your Userbot is running**\n\n"
 mod_caption += "`SYSTEM STATUS\n\n`"
 mod_caption += f"`Python: {python_version()}\n`"
 mod_caption += f"`Telethon version: {version.__version__}\n`"
