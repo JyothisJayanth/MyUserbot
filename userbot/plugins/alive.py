@@ -10,6 +10,7 @@ from userbot.utils import admin_cmd
 from telethon import version
 from platform import python_version, uname
 from userbot.__init__ import StartTime
+from datetime import datetime
 import time
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
@@ -55,7 +56,7 @@ def get_readable_time(seconds: int) -> str:
     start = datetime.now()
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    uptime = get_readable_time((time.time() - StartTime)
+    uptime = get_readable_time((time.time() - StartTime))
 
 
 mod_caption = "**Your Userbot is running**\n\n"
