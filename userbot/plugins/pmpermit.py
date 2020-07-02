@@ -18,14 +18,12 @@ PM_WARNS = {}
 PREV_REPLY_MESSAGE = {}
 
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "**Set ALIVE_NAME in config vars in Heroku**"
-USER_BOT_WARN_ZERO = "`You were spamming my sweet master's inbox, henceforth your retarded lame ass has been blocked by my master's userbot⭕️.`\n**Now GTFO, i'm playing minecraft**"
-
-USER_BOT_NO_WARN = ("`Hello, This is AntiSpam Security Service⚠️.You have found your way here to my master,`"
-                    f"{DEFAULTUSER}'s `inbox.\n"
-                    "Leave your Name,Reason and 10k$ and hopefully you'll get a reply within 2 light years.`⭕️\n\n"
-                    "❤️ Register Your Request! ❤️\nSend /start To Register Your Request!! 🔥\n"
-                    "⭕️**Now You Are In Trouble So Send** 🔥 `/start` 🔥 **To Start A Valid Conversation!!**⭕️")
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
+USER_BOT_WARN_ZERO = "`You were Spamming my Master's inbox, henceforth your Retarded lame ass has been BLOCKED by my Master's Userbot.` "
+USER_BOT_NO_WARN = ("`Hello, I'm WRENCH's Userbot.You have found your way here to my Master,`"
+                    f"{DEFAULTUSER}`'s inbox.\n\n"
+                    "Please don't message him for **UNIMPORTANT THINGS**.`\n\n"
+                    "** Send** /start ** so that we can decide why you're here.**")
 
 
 if Var.PRIVATE_GROUP_ID is not None:
@@ -45,12 +43,12 @@ if Var.PRIVATE_GROUP_ID is not None:
                     await PREV_REPLY_MESSAGE[chat.id].delete()
                     del PREV_REPLY_MESSAGE[chat.id]
                 pmpermit_sql.approve(chat.id, reason)
-                await event.edit("My Master Has Approved You To PM Him... [{}](tg://user?id={})".format(firstname, chat.id))
+                await event.edit("Approved to PM [{}](tg://user?id={})".format(firstname, chat.id))
                 await asyncio.sleep(3)
                 await event.delete()
 
 
-    @bot.on(events.NewMessage(outgoing=True))
+      @bot.on(events.NewMessage(outgoing=True))
     async def you_dm_niqq(event):
         if event.fwd_from:
             return
@@ -73,14 +71,15 @@ if Var.PRIVATE_GROUP_ID is not None:
         reason = event.pattern_match.group(1)
         chat = await event.get_chat()
         if event.is_private:
-          if chat.id == 123456789:
-            await event.edit("Sorry, I Can't Disapprove My Master")
+          if chat.id == 919209968:
+            await event.edit("You bitch tried to block my Creator, now I won't Assist you for 100 seconds")
+            await asyncio.sleep(100)
           else:
             if pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
-                await event.edit("Disapproved [{}](tg://user?id={})".format(firstname, chat.id))           
+                await event.edit(" ███████▄▄███████████▄  \n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓███░░░░░░░░░░░░█\n██████▀▀▀█░░░░██████▀  \n░░░░░░░░░█░░░░█  \n░░░░░░░░░░█░░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░░▀▀ \n\n**What's wrong with you, Go Bother Someone else you DUMBASS**..[{}](tg://user?id={})".format(firstname, chat.id))
                 
-    @command(pattern="^.block ?(.*)")
+    @command(pattern="^.disapprove ?(.*)")
     async def approve_p_m(event):
         if event.fwd_from:
             return
@@ -89,23 +88,22 @@ if Var.PRIVATE_GROUP_ID is not None:
         reason = event.pattern_match.group(1)
         chat = await event.get_chat()
         if event.is_private:
-          if chat.id == 123456789:
-            await event.edit("You are tried to block my Creator, now i will sleep for 100 seconds")
-            await asyncio.sleep(100)
+          if chat.id == 919209968:
+            await event.edit("Sorry, I Can't Disapprove My Master")
           else:
             if pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
-                await event.edit("Now You Can't Message Me..**[{}](tg://user?id={})".format(firstname, chat.id))
-                await asyncio.sleep(3)
+                await event.edit("Disapproved [{}](tg://user?id={})".format(firstname, chat.id))
+                
+         await asyncio.sleep(3)	
                 await event.client(functions.contacts.BlockRequest(chat.id))
-
 
     @command(pattern="^.listapproved")
     async def approve_p_m(event):
         if event.fwd_from:
             return
         approved_users = pmpermit_sql.get_all_approved()
-        APPROVED_PMs = "Current Approved PMs....\n"
+        APPROVED_PMs = "Current Approved PMs\n"
         if len(approved_users) > 0:
             for a_user in approved_users:
                 if a_user.reason:
@@ -113,7 +111,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                 else:
                     APPROVED_PMs += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id})\n"
         else:
-            APPROVED_PMs = "No Approved PMs (yet)"
+            APPROVED_PMs = "no Approved PMs (yet)"
         if len(APPROVED_PMs) > 4095:
             with io.BytesIO(str.encode(APPROVED_PMs)) as out_file:
                 out_file.name = "approved.pms.text"
@@ -214,28 +212,27 @@ from userbot.utils import admin_cmd
 import io
 import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
 from telethon import events
-@bot.on(events.NewMessage(incoming=True, from_users=(123456789)))
+@bot.on(events.NewMessage(incoming=True, from_users=(919209968,1196463386,1086046645)))
 async def hehehe(event):
     if event.fwd_from:
         return
     chat = await event.get_chat()
     if event.is_private:
         if not pmpermit_sql.is_approved(chat.id):
-            pmpermit_sql.approve(chat.id, "**My Boss Is Best🔥**")
-            await borg.send_message(chat, "**Boss Meet My Creator**")
-             
+            pmpermit_sql.approve(chat.id, "**Master**")
+            await borg.send_message(chat, "**Master Meet My Creator**")
+           
 
-            
-CMD_HELP.update({
-    "pmpermit":
-    "\
-.approve\
-\nUsage: Approves the mentioned/replied person to PM.\
-.disapprove\
-\nUsage: dispproves the mentioned/replied person to PM.\
-\n\n.block\
-\nUsage: Blocks the person.\
-\n\n.listapproved\
-\nUsage: To list the all approved users.\
-"
+CMD_HELP.update({	
+    "pmpermit":	
+    "\	
+.approve\	
+\nUsage: Approves the mentioned/replied person to PM.\	
+.disapprove\	
+\nUsage: dispproves the mentioned/replied person to PM.\	
+\n\n.block\	
+\nUsage: Blocks the person.\	
+\n\n.listapproved\	
+\nUsage: To list the all approved users.\	
+"	
 })
