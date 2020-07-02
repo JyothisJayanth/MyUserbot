@@ -1,17 +1,18 @@
-"""Check if userbot alive. If you change these, you become the gayest gay such that even the gay world will disown you."""
-# by @WhySooSerious
+"""Check if userbot alive or not . 
 
+"""
 import os
 import asyncio
 from telethon import events
+from datetime import datetime
 from telethon.tl.types import ChannelParticipantsAdmins
 from userbot import ALIVE_NAME, CMD_HELP
 from userbot.utils import admin_cmd
 from telethon import version
 from platform import python_version, uname
 from userbot.__init__ import StartTime
-from datetime import datetime
 import time
+
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 
@@ -19,10 +20,9 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars 
 
 ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
 if ALIVE_PIC is None:
-  ALIVE_GIF = "https://telegra.ph/file/a6c374a64cb906ebdc4d6.mp4"
+  MOD_IMG = "https://telegra.ph/file/a6c374a64cb906ebdc4d6.mp4"
 else:
-  ALIVE_GIF = ALIVE_PIC
-
+  MOD_IMG = ALIVE_PIC
 
 def get_readable_time(seconds: int) -> str:
     count = 0
@@ -52,26 +52,31 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
+start = datetime.now()
+end = datetime.now()
+ms = (end - start).microseconds / 1000
+uptime = get_readable_time((time.time() - StartTime))
 
-    start = datetime.now()
-    end = datetime.now()
-    ms = (end - start).microseconds / 1000
-    uptime = get_readable_time((time.time() - StartTime))
 
 
-mod_caption = "**Your Userbot is running**\n\n"
+
+
+mod_caption = "**Your Userbot is running**\n\n""
 mod_caption += "`SYSTEM STATUS\n\n`"
 mod_caption += f"`Python: {python_version()}\n`"
 mod_caption += f"`Telethon version: {version.__version__}\n`"
 mod_caption += f"`Ping speed: {ms}\nUserbot Uptime: {uptime}`\n"
 mod_caption += "`Server HQ` : [Switch SUPERNAP](https://www.switch.com/about), LA\n`"
-mod_caption += "`Database : Amazon Web Services`\n\n"
+mod_caption += "`Database : Amazon Web Services`\n\n`"
+mod_caption += "`ALWAYS WITH YOU MY MASTER!!`\n\n"
 mod_caption += "`My Rightful OWNER`: **WRENCH**\n\n"
 mod_caption += "[@WhySooSerious](https://github.com/JyothisJayanth)"
+
+
 
 #@command(outgoing=True, pattern="^.alive$")
 @borg.on(admin_cmd(pattern=r"alive"))
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
     await alive.delete() 
-    await borg.send_file(alive.chat_id, ALIVE_GIF,caption=mod_caption)
+    await borg.send_file(alive.chat_id, MOD_IMG,caption=mod_caption)
