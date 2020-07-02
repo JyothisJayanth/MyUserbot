@@ -13,9 +13,6 @@ from platform import python_version, uname
 from userbot.__init__ import StartTime
 import time
 
-
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
-
 def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
@@ -53,7 +50,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 
-
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 ALIVE_GIF = "https://telegra.ph/file/a6c374a64cb906ebdc4d6.mp4"
 mod_caption = "**Your Userbot is running**\n\n"
 mod_caption += "`SYSTEM STATUS\n\n`"
