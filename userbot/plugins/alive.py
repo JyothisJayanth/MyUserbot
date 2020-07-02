@@ -44,7 +44,6 @@ def get_readable_time(seconds: int) -> str:
 
 
     start = datetime.now()
-    await event.edit("oof!")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
     uptime = get_readable_time((time.time() - StartTime)
