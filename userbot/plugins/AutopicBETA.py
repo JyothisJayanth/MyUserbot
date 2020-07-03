@@ -22,7 +22,7 @@ import shutil
 import random, re
 
 
-FONT_FILE_TO_USE = "MyUserbot/userbot/Font/SkyFont.otf"
+FONT_FILE_TO_USE = "MyUserbot/userbot/Font/Halfomania-Regular.ttf"
 
 #Add telegraph media links of profile pics that are to be used
 TELEGRAPH_MEDIA_LINKS = ["https://telegra.ph/file/653fc27e3682bbf162909.jpg", #1
