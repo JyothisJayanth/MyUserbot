@@ -22,7 +22,7 @@ import shutil
 import random, re
 
 
-FONT_FILE_TO_USE = "userbot/Font/AttackGraffiti-3zRBM.ttf"
+FONT_FILE_TO_USE = "MyUserbot/userbot/Font/SkyFont.otf"
 
 #Add telegraph media links of profile pics that are to be used
 TELEGRAPH_MEDIA_LINKS = ["https://telegra.ph/file/653fc27e3682bbf162909.jpg", #1
@@ -77,7 +77,7 @@ async def autopic(event):
     
         shutil.copy(downloaded_file_name, photo)
         im = Image.open(photo)
-        current_time = datetime.now().strftime("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n                                                   ########################### \n                                                      Time: %H:%M \n                                                  @WhySooSerious \n                                                    Date: %d.%m.%y \n                                                   #############################")
+        current_time = datetime.now().strftime("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n                                                   ########################### \n                                                      Time: %H:%M \n                                                  @WhySooSerious \n                                                    Date: %d.%m.%y \n                                                   ###############################")
         img = Image.open(photo)
         drawn_text = ImageDraw.Draw(img)
         fnt = ImageFont.truetype(FONT_FILE_TO_USE, 36)
