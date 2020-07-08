@@ -13,25 +13,6 @@ naam = str(ALIVE_NAME)
 
 bot = "@AniFluidbot"
  
-@borg.on(admin_cmd("sanime ?(.*)"))
-async def _(event):
-    if event.fwd_from:
-        return    
-    sysarg = event.pattern_match.group(1)
-
-      async with event.client.conversation(bot) as conv:
-          try:
-              await conv.send_message("/start")
-              response = await conv.get_response()
-              await conv.send_message("/anime" + sysarg)
-              result = await conv.get_response()
- 
-              await borg.send_message(event.chat_id, result.text)
- 
-              await event.delete()
-
-
- from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="urband ?(.*)"))
 async def _(event):
@@ -54,29 +35,3 @@ async def _(event):
           else: 
              await event.delete()
              await event.client.send_message(event.chat_id, response.message)
-
-@borg.on(admin_cmd("scharacter ?(.*)"))
- 
-async def _(event):
- 
-    if event.fwd_from:
- 
-        return    
- 
-    sysarg = event.pattern_match.group(1)
- 
-      async with event.client.conversation(bot) as conv:
- 
-          try:
- 
-              await conv.send_message("/start")
- 
-              response = await conv.get_response()
- 
-              await conv.send_message("/character" + sysarg)
- 
-              audio = await conv.get_response()
- 
-              await borg.send_message(event.chat_id, audio.text)
- 
-              await event.delete()
