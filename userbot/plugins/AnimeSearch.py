@@ -18,7 +18,7 @@ async def _(event):
     if event.fwd_from:
         return    
     sysarg = event.pattern_match.group(1)
-     sysarg == ""
+
       async with borg.conversation(bot) as conv:
           try:
               await conv.send_message("/start")
@@ -40,8 +40,6 @@ async def _(event):
         return    
  
     sysarg = event.pattern_match.group(1)
- 
-    sysarg == ""
  
       async with borg.conversation(bot) as conv:
  
