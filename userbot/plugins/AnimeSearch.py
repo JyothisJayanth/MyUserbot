@@ -18,7 +18,7 @@ async def _(event):
     if event.fwd_from:
         return    
     sysarg = event.pattern_match.group(1)
-    if sysarg == "":
+    if sysarg == ""
       async with borg.conversation(bot) as conv:
           try:
               await conv.send_message("/start")
@@ -31,26 +31,6 @@ async def _(event):
               await event.delete()
  
 
-    elif "" in sysarg:
- 
-      async with borg.conversation(bot) as conv:
- 
-          try:
- 
-              await conv.send_message("/start")
- 
-              response = await conv.get_response()
- 
-              await conv.send_message("/anime " + sysarg)
- 
-              audio = await conv.get_response()
- 
-              await borg.send_message(event.chat_id, audio.text)
- 
-              await event.delete()
- 
-          
- 
 @borg.on(admin_cmd("scharacter ?(.*)"))
  
 async def _(event):
@@ -78,25 +58,3 @@ async def _(event):
               await borg.send_message(event.chat_id, audio.text)
  
               await event.delete()
- 
-       
-    
-    elif "" in sysarg:
- 
-      async with borg.conversation(bot) as conv:
- 
-          try:
- 
-              await conv.send_message("/start")
- 
-              response = await conv.get_response()
- 
-              await conv.send_message("/character " + sysarg)
- 
-              audio = await conv.get_response()
- 
-              await borg.send_message(event.chat_id, audio.text)
- 
-              await event.delete()
- 
-          
