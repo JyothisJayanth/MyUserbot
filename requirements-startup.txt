@@ -5,7 +5,7 @@ asyncurban
 aiohttp
 aria2p
 async_generator
-beautifulsoup4
+beautifulsoup4==4.9.1
 bs4
 bwb==3.0.0
 cfscrape
@@ -55,3 +55,5 @@ wikipedia>=1.4.0
 youtube-dl
 covid
 tswift
+jikanpy==4.2.1
+tracemoepy==3.1
