@@ -1,83 +1,82 @@
-#By @WhySooSerious,Kangers can Take the Credits 😋
-import datetime
+"""
+Anilist Search Plugin for Userbot
+Usage : .anilist animeName
+By :- @Zero_cool7870
+
+"""
+
+import requests
+import json
 import asyncio
-from telethon import events
-from telethon.errors.rpcerrorlist import YouBlockedUserError, UserAlreadyParticipantError
-from telethon.tl.functions.account import UpdateNotifySettingsRequest
-from telethon.tl.functions.messages import ImportChatInviteRequest
-from userbot.utils import admin_cmd
-import time
- 
-from userbot import ALIVE_NAME
-naam = str(ALIVE_NAME)
+from uniborg.util import admin_cmd
 
-bot = "@AniFluidbot"
- 
+async def callAPI(search_str):
+    query = '''
+    query ($id: Int,$search: String) { 
+      Media (id: $id, type: ANIME,search: $search) { 
+        id
+        title {
+          romaji
+          english
+        }
+        description (asHtml: false)
+        startDate{
+            year
+          }
+          episodes
+          chapters
+          volumes
+          season
+          type
+          format
+          status
+          duration
+          averageScore
+          genres
+          bannerImage
+      }
+    }
+    '''
+    variables = {
+        'search' : search_str
+    }
+    url = 'https://graphql.anilist.co'
+    response = requests.post(url, json={'query': query, 'variables': variables})
+    return response.text
 
-@borg.on(admin_cmd(pattern="urband ?(.*)"))
-async def _(event):
-    if event.fwd_from:
-        return 
-    input_str = event.pattern_match.group(1)
-    reply_message = await event.get_reply_message()
-    chat = "@KeikoSDbot"
-    await event.edit("```Checking...```")
-    async with event.client.conversation(chat) as conv:
-          try:     
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1212429864))
-              await event.client.send_message(chat, "/ud {}".format(input_str))
-              response = await response 
-          except YouBlockedUserError: 
-              await event.reply("```Master! Please Unblock (@KeikoSDbot) ```")
-              return
-          if response.text.startswith("Country"):
-             await event.edit("😶**Country Not Found**😅\n\n[🔴🔴🔴🔴\n ⏩⏩ How to use ⏪⏪\n🔵🔵🔵🔵](https://t.me/Dev_OwO)")
-          else: 
-             await event.delete()
-             await event.client.send_message(event.chat_id, response.message)
+async def formatJSON(outData):
+    msg = ""
+    jsonData = json.loads(outData)
+    res = list(jsonData.keys())
+    if "errors" in res:
+        msg += f"**Error** : `{jsonData['errors'][0]['message']}`"
+        return msg
+    else:
+        jsonData = jsonData['data']['Media']
+        if "bannerImage" in jsonData.keys():
+            msg += f"[〽️]({jsonData['bannerImage']})"
+        else:
+            msg += "〽️"
+        title = jsonData['title']['romaji']
+        link = f"https://anilist.co/anime/{jsonData['id']}"
+        msg += f"[{title}]({link})"
+        msg += f"\n\n**Type** : {jsonData['format']}"
+        msg += f"\n**Genres** : "
+        for g in jsonData['genres']:
+            msg += g+" "
+        msg += f"\n**Status** : {jsonData['status']}"
+        msg += f"\n**Episode** : {jsonData['episodes']}"
+        msg += f"\n**Year** : {jsonData['startDate']['year']}"
+        msg += f"\n**Score** : {jsonData['averageScore']}"
+        msg += f"\n**Duration** : {jsonData['duration']} min"
+        msg += f"\n\n __{jsonData['description']}__"
+        return msg
 
-@borg.on(admin_cmd(pattern="sanime ?(.*)"))
-async def _(event):
-    if event.fwd_from:
-        return 
-    input_str = event.pattern_match.group(1)
-    reply_message = await event.get_reply_message()
-    chat = "@AniFluidbot"
-    await event.edit("```Checking...```")
-    async with event.client.conversation(chat) as conv:
-          try:     
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1072580256))
-              await event.client.send_message(chat, "/anime {}".format(input_str))
-              response = await response 
-          except YouBlockedUserError: 
-              await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
-              return
-          if response.text.startswith("🕒"):
-             await event.edit("**please wait..**")
-             await event.client.send_message(event.chat_id, response.message)
-          else: 
-             await event.delete()
-             await event.client.send_message(event.chat_id, response.message)
-
-@borg.on(admin_cmd(pattern="ssanime ?(.*)"))
-async def _(event):
-    if event.fwd_from:
-        return 
-    input_str = event.pattern_match.group(1)
-    reply_message = await event.get_reply_message()
-    chat = "@NepGearbot"
-    await event.edit("```Fetching Details...```")
-    async with event.client.conversation(chat) as conv:
-          try:     
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
-              await event.client.send_message(chat, "/anime {}".format(input_str))
-              response = await response 
-          except YouBlockedUserError: 
-              await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
-              return
-          if response.text.startswith("🕒"):
-             await event.edit("**please wait..**")
-             await event.client.send_message(event.chat_id, response.message)
-          else: 
-             await event.delete()
-             await event.client.send_message(event.chat_id, response.message)
+@borg.on(admin_cmd(pattern="anilist ?(.*)", allow_sudo=True))
+async def anilist(event):
+	if event.fwd_from:
+		return
+	input_str = event.pattern_match.group(1)
+	result = await callAPI(input_str)
+	msg = await formatJSON(result)
+	await event.edit(msg,link_preview=True)
