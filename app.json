@@ -1,7 +1,7 @@
 {
   "name": "My Userbot",
   "description": "Only For Legends",
-  "logo": "https://telegra.ph/file/9b54a71ac22abd00448a5.jpg",
+  "logo": "https://pbs.twimg.com/media/D3YiO8UUwAAqHjB?format=jpg&name=large",
     "keywords": [
     "telegram",
     "userbot",
@@ -33,15 +33,18 @@
     },
     "ALIVE_PIC": {
       "description": "put here any telegraph media link for alive pic.",
-      "value": ""
+      "value": "",
+      "required": false
     },
     "PMPERMIT_PIC": {
       "description": "put here any telegraph media link for pmpermit custom pic.",
-      "value": ""
+      "value": "",
+     "required": false
     },
     "APP_ID": {
       "description": "Get this value from my.telegram.org! Please do not steal",
-      "value": ""
+      "value": "",
+      "required": false
     },
     "REM_BG_API_KEY": {
       "description": "Required for Removing image background functionality. Get from https://www.remove.bg/",
