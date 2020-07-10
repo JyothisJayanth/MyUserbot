@@ -23,7 +23,6 @@ async def _(event):
           if response.text.startswith("Forward"):
              await event.edit("```can you kindly disable your forward privacy settings for good?```")
           else:
-        await event.delete()
              await borg.forward_messages(event.chat_id, response.message.media)
 
 @borg.on(admin_cmd("feet"))
