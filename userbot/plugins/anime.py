@@ -90,31 +90,6 @@ async def _(event):
              response = await response
              await event.client.send_message(event.chat_id, response.message)
 
-############################
-
-
-from telethon.errors.rpcerrorlist import YouBlockedUserError
-from telethon.tl.functions.account import UpdateNotifySettingsRequest
-from uniborg.util import admin_cmd
-
-@borg.on(admin_cmd("mask ?(.*)"))
-async def _(event):
-    if event.fwd_from:
-        return 
-    chat = "@hazmat_suit_bot"
-    await event.edit("```Processing```")
-    async with borg.conversation(chat) as conv:
-          try:     
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=905164246))
-              await borg.send_message(chat, "/neko")
-              response = await response 
-          except YouBlockedUserError: 
-              await event.reply("```Please unblock @KeikoSDbot and try again```")
-              return
-          if response.text.startswith("Forward"):
-             await event.edit("```can you kindly disable your forward privacy settings for good?```")
-          else: 
-             await borg.send_file(event.chat_id, response.message.media)
 #####################################
 
 
