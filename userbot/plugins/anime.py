@@ -93,28 +93,28 @@ async def _(event):
 ############################
 
 
-@borg.on(admin_cmd(pattern="covid ?(.*)"))
+from telethon.errors.rpcerrorlist import YouBlockedUserError
+from telethon.tl.functions.account import UpdateNotifySettingsRequest
+from uniborg.util import admin_cmd
+
+@borg.on(admin_cmd("mask ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return 
-    input_str = event.pattern_match.group(1)
-    reply_message = await event.get_reply_message()
-    chat = "@NovelCoronaBot"
-    await event.edit("```Checking...```")
-    async with event.client.conversation(chat) as conv:
+    chat = "@hazmat_suit_bot"
+    await event.edit("```Processing```")
+    async with borg.conversation(chat) as conv:
           try:     
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1124136160))
-              await event.client.send_message(chat, "{}".format(input_str))
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=905164246))
+              await borg.send_message(chat, "/neko")
               response = await response 
           except YouBlockedUserError: 
-              await event.reply("```Master! Please Unblock (@NovelCoronaBot) ```")
+              await event.reply("```Please unblock @KeikoSDbot and try again```")
               return
-          if response.text.startswith("Country"):
-             await event.edit("😶**Country Not Found**😅\n\n[🔴🔴🔴🔴\n ⏩⏩ How to use ⏪⏪\n🔵🔵🔵🔵](https://t.me/Dev_OwO)")
+          if response.text.startswith("Forward"):
+             await event.edit("```can you kindly disable your forward privacy settings for good?```")
           else: 
-             await event.delete()
-             await event.client.send_message(event.chat_id, response.message)
-
+             await borg.send_file(event.chat_id, response.message.media)
 #####################################
 
 
