@@ -23,110 +23,110 @@ from uniborg.util import admin_cmd
 @borg.on(admin_cmd(pattern="anime ?(.*)"))
 async def _(event):
     if event.fwd_from:
-        return 
+        return
     input_str = event.pattern_match.group(1)
     reply_message = await event.get_reply_message()
     chat = "@AniFluidbot"
     await event.edit("```Fetching Anime Details...```")
     async with event.client.conversation(chat) as conv:
-          try:     
+          try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
               await event.client.send_message(chat, "/anime {}".format(input_str))
-              response = await response 
-          except YouBlockedUserError: 
+              response = await response
+          except YouBlockedUserError:
               await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
               return
           if response.text.startswith("Not Found!"):
              await event.edit("😶**Anime Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
-          else: 
+          else:
              await event.delete()
              await event.client.send_message(event.chat_id, response.message)
 
 @borg.on(admin_cmd(pattern="character ?(.*)"))
 async def _(event):
     if event.fwd_from:
-        return 
+        return
     input_str = event.pattern_match.group(1)
     reply_message = await event.get_reply_message()
     chat = "@AniFluidbot"
     await event.edit("```Fetching Character Details...```")
     async with event.client.conversation(chat) as conv:
-          try:     
+          try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
               await event.client.send_message(chat, "/character {}".format(input_str))
-              response = await response 
-          except YouBlockedUserError: 
+              response = await response
+          except YouBlockedUserError:
               await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
               return
           if response.text.startswith("Not Found!"):
              await event.edit("😶**Character Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
-          else: 
+          else:
              await event.delete()
              await event.client.send_message(event.chat_id, response.message)
-            
+
 @borg.on(admin_cmd(pattern="airing ?(.*)"))
 async def _(event):
     if event.fwd_from:
-        return 
+        return
     input_str = event.pattern_match.group(1)
     reply_message = await event.get_reply_message()
     chat = "@AniFluidbot"
     await event.edit("```Fetching Airing Details...```")
     async with event.client.conversation(chat) as conv:
-          try:     
+          try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
               await event.client.send_message(chat, "/airing {}".format(input_str))
-              response = await response 
-          except YouBlockedUserError: 
+              response = await response
+          except YouBlockedUserError:
               await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
               return
           if response.text.startswith("Not Found!"):
              await event.edit("😶**Details Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
-          else: 
+          else:
              await event.delete()
              await event.client.send_message(event.chat_id, response.message)
-            
+
 @borg.on(admin_cmd(pattern="manga ?(.*)"))
 async def _(event):
     if event.fwd_from:
-        return 
+        return
     input_str = event.pattern_match.group(1)
     reply_message = await event.get_reply_message()
     chat = "@AniFluidbot"
     await event.edit("```Fetching Manga Details...```")
     async with event.client.conversation(chat) as conv:
-          try:     
+          try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
               await event.client.send_message(chat, "/manga {}".format(input_str))
-              response = await response 
-          except YouBlockedUserError: 
+              response = await response
+          except YouBlockedUserError:
               await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
               return
           if response.text.startswith("Not Found!"):
              await event.edit("😶**Manga Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
-          else: 
+          else:
              await event.delete()
              await event.client.send_message(event.chat_id, response.message)
-            
+
 @borg.on(admin_cmd(pattern="schedule ?(.*)"))
 async def _(event):
     if event.fwd_from:
-        return 
+        return
     input_str = event.pattern_match.group(1)
     reply_message = await event.get_reply_message()
     chat = "@AniFluidbot"
     await event.edit("```Fetching Schedule Details...```")
     async with event.client.conversation(chat) as conv:
-          try:     
+          try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
               await event.client.send_message(chat, "/schedule {}".format(input_str))
-              response = await response 
-          except YouBlockedUserError: 
+              response = await response
+          except YouBlockedUserError:
               await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
               return
           if response.text.startswith("Not Found!"):
              await event.edit("😶**Schedule Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
-          else: 
+          else:
              await event.delete()
              await event.client.send_message(event.chat_id, response.message)
 
@@ -136,24 +136,23 @@ async def _(event):
 @borg.on(admin_cmd(pattern="sanime ?(.*)"))
 async def _(event):
     if event.fwd_from:
-        return 
+        return
     input_str = event.pattern_match.group(1)
     reply_message = await event.get_reply_message()
     chat = "@NepgearBot"
     await event.edit("```Checking...```")
     async with event.client.conversation(chat) as conv:
-          try:     
+          try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1072580256))
               await event.client.send_message(chat, "/anime {}".format(input_str))
-              response = await response 
-          except YouBlockedUserError: 
+              response = await response
+          except YouBlockedUserError:
               await event.reply("```Master! Please Unblock (@NepgearBot) ```")
               return
           if response.text.startswith("🕒"):
              await event.edit("**Fetching Details..**")
              await event.client.send_message(event.chat_id, response.message)
-                await event.client.send_message(event.chat_id, response.message)
-          else: 
+          else:
              await event.delete()
              response = await response
              await event.client.send_message(event.chat_id, response.message)
@@ -164,21 +163,21 @@ async def _(event):
 @borg.on(admin_cmd(pattern="covid ?(.*)"))
 async def _(event):
     if event.fwd_from:
-        return 
+        return
     input_str = event.pattern_match.group(1)
     reply_message = await event.get_reply_message()
     chat = "@NovelCoronaBot"
     await event.edit("```Checking...```")
     async with event.client.conversation(chat) as conv:
-          try:     
+          try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1124136160))
               await event.client.send_message(chat, "{}".format(input_str))
-              response = await response 
-          except YouBlockedUserError: 
+              response = await response
+          except YouBlockedUserError:
               await event.reply("```Master! Please Unblock (@NovelCoronaBot) ```")
               return
           if response.text.startswith("Country"):
              await event.edit("😶**Country Not Found**😅\n\n[🔴🔴🔴🔴\n ⏩⏩ How to use ⏪⏪\n🔵🔵🔵🔵](https://t.me/Dev_OwO)")
-          else: 
+          else:
              await event.delete()
              await event.client.send_message(event.chat_id, response.message)
