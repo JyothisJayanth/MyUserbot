@@ -31,7 +31,7 @@ async def _(event):
     async with event.client.conversation(chat) as conv:
           try:     
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
-              await event.client.send_message(chat, "/anime{}".format(input_str))
+              await event.client.send_message(chat, "/anime {}".format(input_str))
               response = await response 
           except YouBlockedUserError: 
               await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
@@ -83,8 +83,10 @@ async def _(event):
           except YouBlockedUserError: 
               await event.reply("```Master! Please Unblock (@NepgearBot) ```")
               return
-          if response.text.startswith("Country"):
+          if response.text.startswith("🕒"):
              await event.edit("**Fetching Details..**")
+             await event.client.send_message(event.chat_id, response.message)
+                await event.client.send_message(event.chat_id, response.message)
           else: 
              await event.delete()
              response = await response
