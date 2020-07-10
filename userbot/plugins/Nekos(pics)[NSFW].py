@@ -23,7 +23,7 @@ async def _(event):
           if response.text.startswith("Forward"):
              await event.edit("```can you kindly disable your forward privacy settings for good?```")
           else:
-             await borg.forward_messages(event.chat_id, response.message.media)
+             await borg.send_file(event.chat_id, response.message.media)
 
 @borg.on(admin_cmd("feet"))
 async def _(event):
@@ -197,7 +197,7 @@ async def _(event):
           else:
              await borg.send_file(event.chat_id, response.message.media)
 
-@borg.on(admin_cmd("lewd"))
+@borg.on(admin_cmd("lewdpic"))
 async def _(event):
     if event.fwd_from:
         return
@@ -273,7 +273,7 @@ async def _(event):
           else:
              await borg.send_file(event.chat_id, response.message.media)
 
-@borg.on(admin_cmd("bj"))
+@borg.on(admin_cmd("bjpic"))
 async def _(event):
     if event.fwd_from:
         return
@@ -350,7 +350,7 @@ async def _(event):
           else:
              await borg.send_file(event.chat_id, response.message.media)
 
-@borg.on(admin_cmd("holo"))
+@borg.on(admin_cmd("holopic"))
 async def _(event):
     if event.fwd_from:
         return
@@ -407,7 +407,7 @@ async def _(event):
           else:
              await borg.send_file(event.chat_id, response.message.media)
 
-@borg.on(admin_cmd("pussy"))
+@borg.on(admin_cmd("pussypic"))
 async def _(event):
     if event.fwd_from:
         return
@@ -483,7 +483,7 @@ async def _(event):
           else:
              await borg.send_file(event.chat_id, response.message.media)
 
-@borg.on(admin_cmd("ero"))
+@borg.on(admin_cmd("eropic"))
 async def _(event):
     if event.fwd_from:
         return
