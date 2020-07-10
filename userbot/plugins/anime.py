@@ -101,7 +101,7 @@ from uniborg.util import admin_cmd
 async def _(event):
     if event.fwd_from:
         return 
-    chat = "@hazmat_suit_bot"
+    chat = "@KeikoSDbot"
     await event.edit("```Processing```")
     async with borg.conversation(chat) as conv:
           try:     
