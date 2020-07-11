@@ -23,6 +23,7 @@ async def _(event):
           if response.text.startswith("Forward"):
              await event.edit("```can you kindly disable your forward privacy settings for good?```")
           else:
+              await event.delete()
              await borg.send_file(event.chat_id, response.message.media)
 
 @borg.on(admin_cmd("cumgif"))
@@ -100,3 +101,217 @@ async def _(event):
              await event.edit("```can you kindly disable your forward privacy settings for good?```")
           else:
              await borg.send_file(event.chat_id, response.message.media)
+
+@borg.on(admin_cmd("bjgif"))
+async def _(event):
+    if event.fwd_from:
+        return
+    chat = "@KeikoSDbot"
+    await event.edit("```Finding a Hentai Blow Job GIF..```\n**WARNING : It's NSFW**")
+    async with borg.conversation(chat) as conv:
+          try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1212429864))
+              await borg.send_message(chat, "/bjgif")
+              response = await response
+          except YouBlockedUserError:
+              await event.reply("```Please unblock @KeikoSDbot and try again```")
+              return
+          if response.text.startswith("Forward"):
+             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+          else:
+             await borg.send_file(event.chat_id, response.message.media)
+
+
+@borg.on(admin_cmd("analgif"))
+async def _(event):
+    if event.fwd_from:
+        return
+    chat = "@KeikoSDbot"
+    await event.edit("```Finding a Hentai Anal GIF..```\n**WARNING : It's NSFW**")
+    async with borg.conversation(chat) as conv:
+          try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1212429864))
+              await borg.send_message(chat, "/bj")
+              response = await response
+          except YouBlockedUserError:
+              await event.reply("```Please unblock @KeikoSDbot and try again```")
+              return
+          if response.text.startswith("Forward"):
+             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+          else:
+             await borg.send_file(event.chat_id, response.message.media)
+
+@borg.on(admin_cmd("poke"))
+async def _(event):
+    if event.fwd_from:
+        return
+    chat = "@KeikoSDbot"
+    await event.edit("```Finding an Anime Poke GIF..```\n**It's SFW**")
+    async with borg.conversation(chat) as conv:
+          try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1212429864))
+              await borg.send_message(chat, "/poke")
+              response = await response
+          except YouBlockedUserError:
+              await event.reply("```Please unblock @KeikoSDbot and try again```")
+              return
+          if response.text.startswith("Forward"):
+             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+          else:
+             await borg.send_file(event.chat_id, response.message.media)
+
+@borg.on(admin_cmd("pussygif"))
+async def _(event):
+    if event.fwd_from:
+        return
+    chat = "@KeikoSDbot"
+    await event.edit("```Finding a Hentai Pussy GIF..```\n**WARNING : It's NSFW**")
+    async with borg.conversation(chat) as conv:
+          try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1212429864))
+              await borg.send_message(chat, "/pussygif")
+              response = await response
+          except YouBlockedUserError:
+              await event.reply("```Please unblock @KeikoSDbot and try again```")
+              return
+          if response.text.startswith("Forward"):
+             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+          else:
+             await borg.send_file(event.chat_id, response.message.media)
+
+
+@borg.on(admin_cmd("hentaigif"))
+async def _(event):
+    if event.fwd_from:
+        return
+    chat = "@KeikoSDbot"
+    await event.edit("```Finding a Hentai GIF..```\n**WARNING : It's NSFW**")
+    async with borg.conversation(chat) as conv:
+          try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1212429864))
+              await borg.send_message(chat, "/hentaigif")
+              response = await response
+          except YouBlockedUserError:
+              await event.reply("```Please unblock @KeikoSDbot and try again```")
+              return
+          if response.text.startswith("Forward"):
+             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+          else:
+             await borg.send_file(event.chat_id, response.message.media)
+
+
+@borg.on(admin_cmd("classic"))
+async def _(event):
+    if event.fwd_from:
+        return
+    chat = "@KeikoSDbot"
+    await event.edit("```Finding a Hentai Classic GIF..```\n**WARNING : It's NSFW**")
+    async with borg.conversation(chat) as conv:
+          try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1212429864))
+              await borg.send_message(chat, "/classic")
+              response = await response
+          except YouBlockedUserError:
+              await event.reply("```Please unblock @KeikoSDbot and try again```")
+              return
+          if response.text.startswith("Forward"):
+             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+          else:
+             await borg.send_file(event.chat_id, response.message.media)
+#By @WhySooSerious
+@borg.on(admin_cmd("kuni"))
+async def _(event):
+    if event.fwd_from:
+        return
+    chat = "@KeikoSDbot"
+    await event.edit("```Finding a Hentai Pussy Lick GIF..```\n**WARNING : It's NSFW**")
+    async with borg.conversation(chat) as conv:
+          try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1212429864))
+              await borg.send_message(chat, "/kuni")
+              response = await response
+          except YouBlockedUserError:
+              await event.reply("```Please unblock @KeikoSDbot and try again```")
+              return
+          if response.text.startswith("Forward"):
+             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+          else:
+             await borg.send_file(event.chat_id, response.message.media)
+#By @WhySooSerious
+@borg.on(admin_cmd("cuddle"))
+async def _(event):
+    if event.fwd_from:
+        return
+    chat = "@KeikoSDbot"
+    await event.edit("```Finding an Anime Cuddle GIF..```\n**WARNING : It's Really Kawaii**")
+    async with borg.conversation(chat) as conv:
+          try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1212429864))
+              await borg.send_message(chat, "/cuddle")
+              response = await response
+          except YouBlockedUserError:
+              await event.reply("```Please unblock @KeikoSDbot and try again```")
+              return
+          if response.text.startswith("Forward"):
+             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+          else:
+             await borg.send_file(event.chat_id, response.message.media)
+#By @WhySooSerious
+@borg.on(admin_cmd("titsgif"))
+async def _(event):
+    if event.fwd_from:
+        return
+    chat = "@KeikoSDbot"
+    await event.edit("```Finding a Hentai Tits GIF..```\n**WARNING : It's NSFW**")
+    async with borg.conversation(chat) as conv:
+          try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1212429864))
+              await borg.send_message(chat, "/titsgif")
+              response = await response
+          except YouBlockedUserError:
+              await event.reply("```Please unblock @KeikoSDbot and try again```")
+              return
+          if response.text.startswith("Forward"):
+             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+          else:
+             await borg.send_file(event.chat_id, response.message.media)
+#by @WhySooSerious
+@borg.on(admin_cmd("smug"))
+async def _(event):
+    if event.fwd_from:
+        return
+    chat = "@KeikoSDbot"
+    await event.edit("```Finding an Anime Smug GIF..```\n**It's SFW**")
+    async with borg.conversation(chat) as conv:
+          try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1212429864))
+              await borg.send_message(chat, "/smug")
+              response = await response
+          except YouBlockedUserError:
+              await event.reply("```Please unblock @KeikoSDbot and try again```")
+              return
+          if response.text.startswith("Forward"):
+             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+          else:
+             await borg.send_file(event.chat_id, response.message.media)
+
+@borg.on(admin_cmd("baka"))
+async def _(event):
+    if event.fwd_from:
+        return
+    chat = "@KeikoSDbot"
+    await event.edit("```Finding an Anime Baka GIF..```\n**It's SFW**")
+    async with borg.conversation(chat) as conv:
+          try:
+              response = conv.wait_event(events.NewMessage(incoming=True,from_users=1212429864))
+              await borg.send_message(chat, "/bj")
+              response = await response
+          except YouBlockedUserError:
+              await event.reply("```Please unblock @KeikoSDbot and try again```")
+              return
+          if response.text.startswith("Forward"):
+             await event.edit("```can you kindly disable your forward privacy settings for good?```")
+          else:
+             await borg.send_file(event.chat_id, response.message.media)
+
+#By @WhySooSerious
