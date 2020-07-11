@@ -57,3 +57,4 @@ covid
 tswift
 jikanpy==4.2.1
 tracemoepy==3.1
+nekos.py
