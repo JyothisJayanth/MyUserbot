@@ -254,7 +254,7 @@ async def _(event):
           else:
              await borg.send_file(event.chat_id, response.message.media)
 
-@borg.on(admin_cmd("cum"))
+@borg.on(admin_cmd("cumpic"))
 async def _(event):
     if event.fwd_from:
         return
@@ -312,7 +312,7 @@ async def _(event):
           else:
              await borg.send_file(event.chat_id, response.message.media)
 
-@borg.on(admin_cmd("hentai"))
+@borg.on(admin_cmd("hentaipic"))
 async def _(event):
     if event.fwd_from:
         return
