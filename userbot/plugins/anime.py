@@ -29,18 +29,18 @@ async def _(event):
     chat = "@AniFluidbot"
     await event.edit("```Fetching Anime Details...```")
     async with event.client.conversation(chat) as conv:
-          try:
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
-              await event.client.send_message(chat, "/anime {}".format(input_str))
-              response = await response
-          except YouBlockedUserError:
-              await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
-              return
-          if response.text.startswith("Not Found!"):
-             await event.edit("😶**Anime Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
-          else:
-             await event.delete()
-             await event.client.send_message(event.chat_id, response.message)
+            try:
+                response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
+                await event.client.send_message(chat, "/anime {}".format(input_str))
+                response = await response
+            except YouBlockedUserError:
+                await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
+                return
+            if response.text.startswith("Not Found!"):
+                await event.edit("😶**Anime Not Found**😅\n\nContact [@WhySooSerious](https://t.me/EverythingSuckz) for more info..")
+            else:
+                await event.delete()
+                await event.client.send_message(event.chat_id, response.message)
 
 @borg.on(admin_cmd(pattern="character ?(.*)"))
 async def _(event):
@@ -51,18 +51,18 @@ async def _(event):
     chat = "@AniFluidbot"
     await event.edit("```Fetching Character Details...```")
     async with event.client.conversation(chat) as conv:
-          try:
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
-              await event.client.send_message(chat, "/character {}".format(input_str))
-              response = await response
-          except YouBlockedUserError:
-              await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
-              return
-          if response.text.startswith("Not Found!"):
-             await event.edit("😶**Character Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
-          else:
-             await event.delete()
-             await event.client.send_message(event.chat_id, response.message)
+            try:
+                response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
+                await event.client.send_message(chat, "/character {}".format(input_str))
+                response = await response
+            except YouBlockedUserError:
+                await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
+                return
+            if response.text.startswith("Not Found!"):
+                await event.edit("😶**Character Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
+            else:
+                await event.delete()
+                await event.client.send_message(event.chat_id, response.message)
 
 @borg.on(admin_cmd(pattern="airing ?(.*)"))
 async def _(event):
@@ -73,18 +73,18 @@ async def _(event):
     chat = "@AniFluidbot"
     await event.edit("```Fetching Airing Details...```")
     async with event.client.conversation(chat) as conv:
-          try:
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
-              await event.client.send_message(chat, "/airing {}".format(input_str))
-              response = await response
-          except YouBlockedUserError:
-              await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
-              return
-          if response.text.startswith("Not Found!"):
-             await event.edit("😶**Details Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
-          else:
-             await event.delete()
-             await event.client.send_message(event.chat_id, response.message)
+            try:
+                response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
+                await event.client.send_message(chat, "/airing {}".format(input_str))
+                response = await response
+            except YouBlockedUserError:
+                await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
+                return
+            if response.text.startswith("Not Found!"):
+                await event.edit("😶**Details Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
+            else:
+                await event.delete()
+                await event.client.send_message(event.chat_id, response.message)
 
 @borg.on(admin_cmd(pattern="manga ?(.*)"))
 async def _(event):
@@ -95,18 +95,18 @@ async def _(event):
     chat = "@AniFluidbot"
     await event.edit("```Fetching Manga Details...```")
     async with event.client.conversation(chat) as conv:
-          try:
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
-              await event.client.send_message(chat, "/manga {}".format(input_str))
-              response = await response
-          except YouBlockedUserError:
-              await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
-              return
-          if response.text.startswith("Not Found!"):
-             await event.edit("😶**Manga Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
-          else:
-             await event.delete()
-             await event.client.send_message(event.chat_id, response.message)
+            try:
+                response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
+                await event.client.send_message(chat, "/manga {}".format(input_str))
+                response = await response
+            except YouBlockedUserError:
+                await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
+                return
+            if response.text.startswith("Not Found!"):
+                await event.edit("😶**Manga Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
+            else:
+                await event.delete()
+                await event.client.send_message(event.chat_id, response.message)
 
 @borg.on(admin_cmd(pattern="schedule ?(.*)"))
 async def _(event):
@@ -117,18 +117,18 @@ async def _(event):
     chat = "@AniFluidbot"
     await event.edit("```Fetching Schedule Details...```")
     async with event.client.conversation(chat) as conv:
-          try:
-              response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
-              await event.client.send_message(chat, "/schedule {}".format(input_str))
-              response = await response
-          except YouBlockedUserError:
-              await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
-              return
-          if response.text.startswith("Not Found!"):
-             await event.edit("😶**Schedule Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
-          else:
-             await event.delete()
-             await event.client.send_message(event.chat_id, response.message)
+            try:
+                response = conv.wait_event(events.NewMessage(incoming=True,from_users=778490365))
+                await event.client.send_message(chat, "/schedule {}".format(input_str))
+                response = await response
+            except YouBlockedUserError:
+                await event.reply("```Master! Please Unblock (@AniFluidbot) ```")
+                return
+            if response.text.startswith("Not Found!"):
+                await event.edit("😶**Schedule Not Found**😅\n\n[Contact @WhySooSerious for more info..](https://t.me/WhySooSerious)")
+            else:
+                await event.delete()
+                await event.client.send_message(event.chat_id, response.message)
 
 
 #####################################

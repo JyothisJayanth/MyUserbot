@@ -140,7 +140,7 @@ async def carbon_api(e):
 
    sleep(2.5)
 
-   await e.edit("`Done Dana Done...\n100%`")
+   await e.edit("`Done...\n100%`")
 
    file = './carbon.png'
 
@@ -152,7 +152,7 @@ async def carbon_api(e):
 
          file,
 
-         caption="<< Here's your carbon, \n Carbonised by [GujjuBot](https://www.github.com/japarmar/GujjuBot)>> ",
+         caption="<< Here's your carbon, \n Carbonised for [@WhySooSerious](https://www.t.me/EverythingSuckz)>> ",
 
          force_document=True,
 
@@ -160,7 +160,7 @@ async def carbon_api(e):
 
          )
 
-   os.remove('./GujjuBot.png')
+   os.remove('./carbon.png')
 
    driver.quit()
 

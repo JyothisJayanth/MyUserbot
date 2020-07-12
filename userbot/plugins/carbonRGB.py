@@ -96,11 +96,11 @@ async def carbon_api(e):
 
    await e.edit("⬛⬛⬛⬛⬛")
    file = './carbon.png'
-   await e.edit("✅RGB Karbon Completed, Uploading RGB Karbon✅")
+   await e.edit("Carbonization Completed")
    await e.client.send_file(
          e.chat_id,
          file,
-         caption="Carbonised by [GujjuBot](https://t.me/Gujju_Bot_Support)",
+         caption="Carbonised for [@WhySooSerious](https://t.me/EverythingSuckz)",
          force_document=False,
          reply_to=e.message.reply_to_msg_id,
          )
