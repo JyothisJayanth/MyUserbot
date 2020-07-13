@@ -20,7 +20,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from uniborg.util import admin_cmd
 
-@borg.on(admin_cmd(pattern="anime ?(.*)"))
+@borg.on(admin_cmd(pattern="sanime ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -40,7 +40,7 @@ async def _(event):
                 await event.edit("😶**Anime Not Found**😅\n\nContact [@WhySooSerious](https://t.me/EverythingSuckz) for more info..")
             else:
                 await event.delete()
-                await event.client.send_message(event.chat_id, response.message)
+                await event.client.forward_message(event.chat_id, response.message)
 
 @borg.on(admin_cmd(pattern="character ?(.*)"))
 async def _(event):
