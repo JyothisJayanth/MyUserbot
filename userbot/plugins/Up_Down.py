@@ -93,7 +93,7 @@ async def download(target_file):
                 os.makedirs(os.path.join(TEMP_DOWNLOAD_DIRECTORY, head))
                 file_name = os.path.join(head, tail)
         downloaded_file_name = TEMP_DOWNLOAD_DIRECTORY + "" + file_name
-        downloader = SmartDL(url, downloaded_file_name, progress_bar=False)
+        downloader = SmartDL(url, downloaded_file_name, progress_bar=True)
         downloader.start(blocking=False)
         c_time = time.time()
         display_message = None
