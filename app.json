@@ -73,9 +73,9 @@
       "value": ""
     },
     "PM_LOGGR_BOT_API_ID": {
-       "description": "for login private messages create a private channel and do .get_id and add that id", 
+       "description": "for login private messages create a private channel and do .get_id and add that id",
        "value": ""
-    }, 
+    },
     "STRING_SESSION": {
       "description": "Get this value from https://fridayuserbot.midhunkm1294bit.repl.run",
       "value": ""
@@ -139,7 +139,7 @@
       "description": "Put You Channel Username Reflecting Your Info or Your Tags Etc",
       "value": "",
       "required": false
-    
+
     }
 
 
@@ -147,7 +147,7 @@
   "addons": [{
     "plan": "heroku-postgresql",
     "options": {
-      "version": "9.5"
+      "version": "10"
     }
   }],
   "buildpacks": [{
