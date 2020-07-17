@@ -123,7 +123,7 @@ async def apkr(e):
 
         app_details += "\n<code>Features :</code> <a href='"+app_link+"'>View in Play Store</a>"
 
-        app_details += "\n\n<b>Download : </b> <a href='https://t.me/IndianBot_Official'>Request_Here by typing #request</a>"
+        app_details += "\n\n<b>Download : </b> <a href='https://play.google.com'>Request_Here by typing #request</a>"
 
         app_details += "\n\n===>Powered by Ultroid(c)<==="
 

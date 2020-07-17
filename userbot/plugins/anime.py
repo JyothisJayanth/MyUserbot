@@ -42,7 +42,7 @@ async def _(event):
                 await event.delete()
                 await event.client.forward_message(event.chat_id, response.message)
 
-@borg.on(admin_cmd(pattern="character ?(.*)"))
+@borg.on(admin_cmd(pattern="scharacter ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -64,7 +64,7 @@ async def _(event):
                 await event.delete()
                 await event.client.send_message(event.chat_id, response.message)
 
-@borg.on(admin_cmd(pattern="airing ?(.*)"))
+@borg.on(admin_cmd(pattern="sairing ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -86,7 +86,7 @@ async def _(event):
                 await event.delete()
                 await event.client.send_message(event.chat_id, response.message)
 
-@borg.on(admin_cmd(pattern="manga ?(.*)"))
+@borg.on(admin_cmd(pattern="smanga ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -108,7 +108,7 @@ async def _(event):
                 await event.delete()
                 await event.client.send_message(event.chat_id, response.message)
 
-@borg.on(admin_cmd(pattern="schedule ?(.*)"))
+@borg.on(admin_cmd(pattern="sschedule ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

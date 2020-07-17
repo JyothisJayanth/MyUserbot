@@ -167,7 +167,7 @@ async def _(event):
                     event.chat_id,
                     downloaded_file_name,
                     thumb=thumb,
-                    caption="reuploaded by [GujjuBot](https://www.github.com/japarmar/GujjuBot",
+                    caption="Re-uploaded for [@EverythingSuckz](https://t.me/WhySooSerious",
                     force_document=False,
                     allow_cache=False,
                     reply_to=event.message.id,
