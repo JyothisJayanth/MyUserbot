@@ -1,6 +1,6 @@
 # global variables will be assigned here
 # can be imported in any module to make life easier.
-from userbot.config import Config
+from userbot.uniborgConfig import Config
 import asyncio
 from telethon.tl.types import ChannelParticipantsAdmins
 	
