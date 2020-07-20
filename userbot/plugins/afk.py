@@ -121,6 +121,7 @@ async def on_afk(event):
             else:
                 afk_since = f"`{int(seconds)}s` **ago**"
         msg = None
+        total_afk_time = str((afk_end - afk_start))
         message_to_reply = f"My Master Has Been Gone For {total_afk_time} ago\nWhen will he Back : If it's day time," + \
             f"\n Soon I Guess. \n**REASON**: {reason}" \
             if reason \
