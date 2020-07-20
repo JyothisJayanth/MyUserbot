@@ -370,3 +370,23 @@ async def _(event):
             else:
                 await borg.send_file(event.chat_id, response.message.media)
 #By @WhySooSerious
+
+@borg.on(admin_cmd("kiss"))
+async def _(event):
+    if event.fwd_from:
+        return
+    chat = "@KeikoSDbot"
+    await event.edit("```Finding an an Anime Kissing GIF..```\n**WARNING : It's NSFW**")
+    async with borg.conversation(chat) as conv:
+            try:
+                response = conv.wait_event(events.NewMessage(incoming=True,from_users=1212429864))
+                await borg.send_message(chat, "/kiss")
+                response = await response
+            except YouBlockedUserError:
+                await event.reply("```Please unblock @KeikoSDbot and try again```")
+                return
+            if response.text.startswith("Forward"):
+                await event.edit("```can you kindly disable your forward privacy settings for good?```")
+            else:
+                await borg.send_file(event.chat_id, response.message.media)
+#By @WhySooSerious
