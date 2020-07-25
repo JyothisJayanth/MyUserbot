@@ -112,21 +112,21 @@ ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT") or "False")
 ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT") or "False")
 
 # FedBan Premium Module
-F_BAN_LOGGER_GROUP = os.environ.get("F_BAN_LOGGER_GROUP", None)
+    F_BAN_LOGGER_GROUP = os.environ.get("F_BAN_LOGGER_GROUP", None)
 
 # Heroku Credentials for updater.
-HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "False"))
-HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
-HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
+    HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "False"))
+    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
+    HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
 
    
-# Youtube API key
-YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
+    # Youtube API key
+    YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 
-# Default .alive name
-ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
-AUTONAME = os.environ.get("AUTONAME", None)
-REDIRECTCHANNEL = os.environ.get("REDIRECTCHANNEL", None)
+    # Default .alive name
+    ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
+    AUTONAME = os.environ.get("AUTONAME", None)
+    REDIRECTCHANNEL = os.environ.get("REDIRECTCHANNEL", None)
 
 # Default .alive name
 ALIVE_NAME = os.environ.get("ALIVE_NAME") or None
@@ -169,7 +169,8 @@ G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID") or None
 G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET") or None
 G_DRIVE_AUTH_TOKEN_DATA = os.environ.get("G_DRIVE_AUTH_TOKEN_DATA") or None
 G_DRIVE_FOLDER_ID = os.environ.get("G_DRIVE_FOLDER_ID") or None
-TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY") or "./downloads"
+TEMP_DOWNLOAD_DIRECTORY = os.environ.get(
+    "TMP_DOWNLOAD_DIRECTORY") or "./downloads"
 
 # Terminal alias
 TERM_ALIAS = os.environ.get("TERM_ALIAS") or "@WhySooSerious"
