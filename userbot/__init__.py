@@ -49,7 +49,7 @@ if CONFIG_CHECK:
     quit(1)
 
 # Telegram App KEY and HASH
-APP_ID = os.environ.get("API_ID") or None
+API_ID = os.environ.get("API_ID") or None
 API_HASH = os.environ.get("API_HASH") or None
 
 
@@ -195,6 +195,36 @@ for binary, path in binaries.items():
     downloader.start()
     os.chmod(path, 0o755)
 
+# 'bot' variable
+if STRING_SESSION:
+    # pylint: disable=invalid-name
+    bot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
+else:
+    # pylint: disable=invalid-name
+    bot = TelegramClient("userbot", API_KEY, API_HASH)
+
+
+async def check_botlog_chatid():
+    if not BOTLOG:
+        return
+
+    entity = await bot.get_entity(BOTLOG_CHATID)
+    if entity.default_banned_rights.send_messages:
+        LOGS.info(
+            "Your account doesn't have rights to send messages to BOTLOG_CHATID "
+            "group. Check if you typed the Chat ID correctly.")
+        quit(1)
+
+
+with bot:
+    try:
+        bot.loop.run_until_complete(check_botlog_chatid())
+    except BaseException:
+        LOGS.info(
+            "BOTLOG_CHATID environment variable isn't a "
+            "valid entity. Check your environment variables/config.env file."
+        )
+        quit(1)
 
 # Global Variables
 COUNT_MSG = 0
