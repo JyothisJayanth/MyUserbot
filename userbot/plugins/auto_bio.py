@@ -16,7 +16,7 @@ async def _(event):
     while True:
         DMY = time.strftime("%d/%m/%Y")
         HM = time.strftime("%H:%M:%S")
-        bio = f"No PMs ¦ I hope Today 📅 ({DMY}) is Good"
+        bio = f"No PMs ¦ Too Lazy to Write a Bio // @TeamCyphers // 📅 ({DMY})"
         logger.info(bio)
         try:
             await borg(functions.account.UpdateProfileRequest(  # pylint:disable=E0602
@@ -32,3 +32,8 @@ async def _(event):
             #     "Successfully Changed Profile Bio"
             # )
         await asyncio.sleep(DEL_TIME_OUT)
+
+CMD_HELP.update({
+    'bio': ".bio\
+    \nUsage: This Plugin is Exclusively for @WhySooSerious."
+})

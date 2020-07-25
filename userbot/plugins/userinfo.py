@@ -403,7 +403,7 @@ async def fetch_info(replied_user, **kwargs):
 
 
 CMD_HELP.update({
-    "android":
+    "userinfo":
     "`.u(ser) [options] (username|id)`" 
 
     "Or, in response to a message"

@@ -88,3 +88,16 @@ async def _(event):
             await event.delete()
             await borg.send_file(event.chat_id, response.message.media)
 #By @WhySooSerious
+
+CMD_HELP.update({
+    "nekos(stckrs)":
+    "**Nekos (gifs) [NSFW]**\n\n\
+    What it Does?\
+    Sends a Random (NSFW/SFW) Stickers to your current Chat.\n\n\
+    👇🏻 Commands 👇🏻\n\n\
+    .alewd - Sends Random Avater Lewd Stickers.\n\
+    .gasm - Sends Random Orgasm Stickers.\n\
+    .avatar - Sends Random Avatar Stickers.\n\
+    .waifu - Sends Random Waifu Stickers.\
+    \n\nPlugin by @WhySooSerious"
+})

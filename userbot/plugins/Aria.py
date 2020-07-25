@@ -198,7 +198,7 @@ async def check_progress_for_dl(gid, event, previous):
 
 CMD_HELP.update({
     "aria":
-    ".aurl [URL] (or) .amag [Magnet Link] (or) .ator [path to torrent file]\
+    "Commands found in Aria\n\n.aurl [URL] (or) .amag [Magnet Link] (or) .ator [path to torrent file]\
     \nUsage: Downloads the file into your userbot server storage.\
     \n\n.apause (or) .aresume\
     \nUsage: Pauses/resumes on-going downloads.\

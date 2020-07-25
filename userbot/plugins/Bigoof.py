@@ -38,3 +38,11 @@ async def _(event):
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 40])
 
+CMD_HELP.update({
+    "aria":
+    "**Bigoof**\
+    \n\nCommands\
+    \n.bigoof - ACII Animation Plugin\
+    \n\nPlugin by @WhySooSerious" 
+})
+

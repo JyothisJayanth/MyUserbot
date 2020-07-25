@@ -567,3 +567,40 @@ async def _(event):
                 await borg.send_file(event.chat_id, response.message.media)
 
 #By @WhySooSerious
+
+CMD_HELP.update({
+    "nekos(pics)":
+    "**Nekos (gifs) [NSFW]**\n\n\
+    What it Does?\
+    Sends a Random (NSFW/SFW) Pics to your current Chat.\n\n\
+    👇🏻 Commands 👇🏻\n\n\
+    \n.neko - Sends Random SFW Neko source Images.\
+    \n.feet - Sends Random Anime Feet Images.\
+    \n.yuri - Sends Random Yuri source Images.\
+    \n.trap - Sends Random Trap source Images.\
+    \n.futanari - Sends Random Futanari source Images.\
+    \n.hololewd - Sends Random Holo Lewds.\
+    \n.lewdkemo - Sends Random Kemo Lewds.\
+    \n.erokemo - Sends Random Ero-Kemo Images.\
+    \n.awallpaper - Sends Random Wallpapers.\
+    \n.lewdk - Sends Random Kitsune Lewds.\
+    \n.lewdpic - Sends Random Lewds Pics.\
+    \n.eroyuri -  Sends Random Ero-Yuri source Images.\
+    \n.eron - Sends Random Ero-Neko source Images.\
+    \n.cumpic - Sends Random Cum Images.\
+    \n.bjpic - Sends Random Blow Job source Images.\
+    \n.kemonomimi - Sends Random KemonoMimi source Images.\
+    \n.hentaipic - Sends Random Hentai source Images.\
+    \n.erofeet - Sends Random Ero-Feet source Images.\
+    \n.holopic - Sends Random Holo source Images.\
+    \n.titspic - Sends Random Tits source Images.\
+    \n.holoero - Sends Random Ero-Holo source Images.\
+    \n.pussypic - Sends Random Pussy source Images.\
+    \n.femdom - Sends Random Femdom source Images.\
+    \n.erok - Sends Random Ero-Kitsune source Images.\
+    \n.foxgirl - Sends Random FoxGirl source Images.\
+    \n.eropic - Sends Random Ero source Images.\
+    \n.dva - Sends Random D.V.A source Images.\
+    \n.nsolo - Sends Random Neko-Solo Images.\
+    \n\nPlugin by @WhySooSerious"
+})

@@ -390,3 +390,32 @@ async def _(event):
             else:
                 await borg.send_file(event.chat_id, response.message.media)
 #By @WhySooSerious
+
+
+CMD_HELP.update({
+    "nekos(gifs)":
+    "**Nekos (gifs) [NSFW]**\n\n\
+    What it Does?\
+    Sends a Random (NSFW/SFW) Gifs to your current Chat.\n\n\
+    👇🏻 Commands 👇🏻\n\n\
+    .kiss - Sends Random Kissing GIFs\
+    \n.sologif -  Sends Random Solo GIFs.\
+    \n.cumgif - Sends Random Cum GIFs.\
+    \n.ngif- Sends Random Neko GIFs.\
+    \n.tickle - Sends Random Tickle GIFs.\
+    \n.feed - Sends Random Feeding GIFs.\
+    \n.bjgif - Sends Random Blow Job GIFs.\
+    \n.analgif - Sends Random Anal GIFs.\
+    \n.poke - Sends Random Poke GIFs.\
+    \n.pussygif - Sends Random Pussy GIFs.\
+    \n.hentaigif - Sends Random Hentai GIFs.\
+    \n.classic - Sends Random Classic Hentai GIFs.\
+    \n.kuni - Sends Random Pussy Lick GIFs.\
+    \n.cuddle -  Sends Random Cuddle GIFs.\
+    \n.titsgif - Sends Random Tits GIFs.\
+    \n.smug - Sends Random Smug GIFs.\
+    \n.baka - Sends Random Baka Shout GIFs.\
+    \n.lesbian - Sends Random Les Source GIFs.\
+    \n.nsfwneko - Sends Random NSFW Neko source GIFs.\
+    \n\nPlugin by @WhySooSerious"
+})
