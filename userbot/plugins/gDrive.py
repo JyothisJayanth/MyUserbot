@@ -31,7 +31,7 @@ from userbot import G_DRIVE_DATA, G_DRIVE_CLIENT_ID, G_DRIVE_CLIENT_SECRET, G_DR
 from userbot.events import register
 from userbot.utils import progress, humanbytes, time_formatter, human_to_bytes
 from userbot.utils import CancelProcess
-from userbot.modules.aria import aria2, check_metadata
+from userbot.plugins.Aria import aria2, check_metadata
 # =========================================================== #
 #                          STATIC                             #
 # =========================================================== #
