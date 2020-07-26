@@ -179,7 +179,7 @@ for binary, path in binaries.items():
 # 'bot' variable
 if STRING_SESSION:
     # pylint: disable=invalid-name
-    bot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
+    bot = TelegramClient(StringSession(STRING_SESSION), APP_ID, API_HASH)
 else:
     # pylint: disable=invalid-name
     bot = TelegramClient("userbot", APP_ID, API_HASH)
