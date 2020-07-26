@@ -391,3 +391,6 @@ def human_to_bytes(size: str) -> int:
         size = re.sub(r'([KMGT])', r' \1', size)
     number, unit = [string.strip() for string in size.split()]
     return int(float(number) * units[unit])
+
+class CancelProcess(Exception):
+    """Cancel Process"""
