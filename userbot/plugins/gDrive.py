@@ -13,7 +13,7 @@ import re
 import requests
 import logging
 
-import userbot.modules.sql_helper.gdrive_sql as helper
+import userbot.plugins.sql_helper.gdrive_sql as helper
 
 from bs4 import BeautifulSoup
 from os.path import isfile, isdir, join, getctime
