@@ -14,16 +14,16 @@ from datetime import datetime
 from telethon import events
 from telethon.tl.types import DocumentAttributeVideo
 from userbot.utils import admin_cmd, progress
+from userbot import GIT_REPO_NAME, GITHUB_ACCESS_TOKEN,GIT_TEMP_DIR
 
-GIT_TEMP_DIR = "./userbot/temp/"
 @borg.on(admin_cmd(pattern="commit"))
 async def download(event):
     if event.fwd_from:
         return	
-    if Var.GITHUB_ACCESS_TOKEN is None:
+    if GITHUB_ACCESS_TOKEN is None:
         await event.edit("`Please ADD Proper Access Token from github.com`") 
         return   
-    if Var.GIT_REPO_NAME is None:
+    if GIT_REPO_NAME is None:
         await event.edit("`Please ADD Proper Github Repo Name of your userbot`")
         return 
     mone = await event.reply("Processing ...")

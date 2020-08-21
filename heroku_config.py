@@ -8,8 +8,6 @@ class Var(object):
     DB_URI = os.environ.get("DATABASE_URL", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", None)
     LOGGER = True
-    GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
-    GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
     # Here for later purposes
     SUDO_USERS = os.environ.get("SUDO_USERS", "948408212")
     #PLUGIN_CHANNEL = int(os.environ.get("PLUGIN_CHANNEL", None))
