@@ -12,6 +12,7 @@
   "repository": "https://github.com/JyothisJayanth/MyUserbot",
   "website": "#TODO",
   "success_url": "#TODO",
+  "stack": "container",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable heroku.",
@@ -64,7 +65,7 @@
       "description": "Create a private group add rose  then type /id. PLUGIN_CHANNEL and PRIVATE_GROUP_ID both values should be same",
       "value": ""
     },
-    "PRIVATE_GROUP_BOT_API_ID": {
+    "PRIVATE_GROUP_ID": {
       "description": "create a private channel and then type .get_id add that value here for save messages",
       "value": ""
     },
@@ -117,7 +118,7 @@
       "value": "/app/.chromedriver/bin/chromedriver",
       "required": false
     },
-    "TG_BOT_USER_NAME_BF_HER": {
+    "TGBOT_USERNAME": {
       "description": "Needed for inline buttons maker. Make a bot at [BotFather](http://telegram.dog/BotFather) and get the username of your bot",
       "value": ""
     },

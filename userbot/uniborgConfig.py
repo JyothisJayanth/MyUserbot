@@ -30,7 +30,7 @@ if ENV:
         TG_GLOBAL_ALBUM_LIMIT = int(os.environ.get("TG_GLOBAL_ALBUM_LIMIT", 9))
         # Telegram BOT Token from @BotFather
         TG_BOT_TOKEN_BF_HER = os.environ.get("TG_BOT_TOKEN_BF_HER", None)
-        TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
+        TGBOT_USERNAME = os.environ.get("TGBOT_USERNAME", None)
         #
         #
         # DO NOT EDIT BELOW THIS LINE IF YOU DO NOT KNOW WHAT YOU ARE DOING
@@ -64,9 +64,9 @@ if ENV:
         NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", True))
         
         # send .get_id in any channel to forward all your NEW PMs to this group
-        PRIVATE_GROUP_BOT_API_ID = os.environ.get("PRIVATE_GROUP_BOT_API_ID", None)
-        if PRIVATE_GROUP_BOT_API_ID:
-            PRIVATE_GROUP_BOT_API_ID = int(PRIVATE_GROUP_BOT_API_ID)
+        PRIVATE_GROUP_ID = os.environ.get("PRIVATE_GROUP_ID", None)
+        if PRIVATE_GROUP_ID:
+            PRIVATE_GROUP_ID = int(PRIVATE_GROUP_ID)
         # send .get_id in your private channel to forward all your Private messages
         PM_LOGGR_BOT_API_ID = os.environ.get("PM_LOGGR_BOT_API_ID", None)
         if PM_LOGGR_BOT_API_ID:

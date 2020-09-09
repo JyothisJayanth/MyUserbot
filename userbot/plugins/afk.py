@@ -23,13 +23,13 @@ async def set_not_afk(event):
     if ".afk" not in current_message and "yes" in USER_AFK:  # pylint:disable=E0602
         try:
             await borg.send_message(  # pylint:disable=E0602
-                Config.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
+                Config.PRIVATE_GROUP_ID,  # pylint:disable=E0602
                 "My Master is Back Hurray🥳🥳🥳"
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             await borg.send_message(  # pylint:disable=E0602
                 event.chat_id,
-                "Please set `PRIVATE_GROUP_BOT_API_ID` " + \
+                "Please set `PRIVATE_GROUP_ID` " + \
                 "for the proper functioning of afk functionality " + \
                 "in Ultroid\n\n `{}`".format(str(e)),
                 reply_to=event.message.id,
@@ -68,7 +68,7 @@ async def _(event):
         await event.delete()
         try:
             await borg.send_message(  # pylint:disable=E0602
-                Config.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
+                Config.PRIVATE_GROUP_ID,  # pylint:disable=E0602
                 f"My Master is Not Reachable Right Now, and Reason is {reason}"
             )
         except Exception as e:  # pylint:disable=C0103,W0703

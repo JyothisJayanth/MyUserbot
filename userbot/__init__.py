@@ -178,7 +178,7 @@ for binary, path in binaries.items():
     downloader.start()
     os.chmod(path, 0o755)
 
-BOT_TOKEN = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
+BOT_TOKEN = os.environ.get("TGBOT_USERNAME", None)
 # Global Variables
 COUNT_MSG = 0
 USERS = {}
