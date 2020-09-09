@@ -12,7 +12,9 @@ import os
 import userbot.utils
 from datetime import datetime
 
-DELETE_TIMEOUT = 5
+DELETE_TIMEOUT = 10
+
+thumb_image_path = "https://telegra.ph/file/5f441cf7e1186fdc8048a.png"
 
 @command(pattern="^.install", outgoing=True)
 async def install(event):
@@ -38,17 +40,27 @@ async def install(event):
     await asyncio.sleep(DELETE_TIMEOUT)
     await event.delete()
 
+
+def progress_callback(current, total):
+    print('Uploaded', current, 'out of', total,
+          'bytes: {:.2%}'.format(current / total))
+
 @command(pattern="^.send (?P<shortname>\w+)$", outgoing=True)
 async def send(event):
     if event.fwd_from:
         return
     message_id = event.message.id
+    thumb = thumb_image_path
+    EverythingSuckz = "_Reply_ `,install` _to load this Plugin/Module Temporarly_"
     input_str = event.pattern_match["shortname"]
     the_plugin_file = "./userbot/plugins/{}.py".format(input_str)
     start = datetime.now()
     await event.client.send_file(  # pylint:disable=E0602
         event.chat_id,
         the_plugin_file,
+        thumb=thumb,
+        progress_callback=progress_callback,
+        caption=EverythingSuckz,
         force_document=True,
         allow_cache=False,
         reply_to=event.message.reply_to_msg_id
@@ -56,7 +68,7 @@ async def send(event):
     end = datetime.now()
     time_taken_in_ms = (end - start).seconds
     await event.edit("Uploaded {} in {} seconds".format(input_str, time_taken_in_ms))
-    await asyncio.sleep(DELETE_TIMEOUT)
+    await asyncio.sleep(5)
     await event.delete()
 
 @command(pattern="^.unload (?P<shortname>\w+)$", outgoing=True)
