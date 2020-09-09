@@ -185,6 +185,10 @@ USERS = {}
 COUNT_PM = {}
 LASTMSG = {}
 CMD_HELP = {}
+SUDO_LIST = {}
+INT_PLUG = ""
+LOAD_PLUG = {}
+SUDO_LIST = {} #SUDO
 ISAFK = False
 AFKREASON = None
 from math import ceil
