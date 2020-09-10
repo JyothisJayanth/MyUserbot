@@ -120,7 +120,7 @@ def load_module(shortname):
         sys.modules["userbot.plugins."+shortname] = mod
         print("Successfully (re)imported "+shortname)
 
-            bot.tgbot = TelegramClient(
+            tgbot = TelegramClient(
                 "TGBOT_TOKEN",
                 api_id=APP_ID,
                 api_hash=API_HASH
