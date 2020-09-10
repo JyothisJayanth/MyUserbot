@@ -105,7 +105,6 @@ def load_module(shortname):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = bot
-        mod.tgbot = self.tgbot
         mod.Var = Var
         mod.command = command
         mod.logger = logging.getLogger(shortname)
@@ -120,7 +119,7 @@ def load_module(shortname):
         sys.modules["userbot.plugins."+shortname] = mod
         print("Successfully (re)imported "+shortname)
 
-            self.tgbot = TelegramClient(
+            bot.tgbot = TelegramClient(
                 "TGBOT_TOKEN",
                 api_id=APP_ID,
                 api_hash=API_HASH
