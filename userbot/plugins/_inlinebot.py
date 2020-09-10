@@ -88,6 +88,11 @@ if Var.TGBOT_USERNAME is not None and tgbot is not None:
                     caption=plugin_name
                 )
 
+    @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"istatus"))) #for later use
+    async def on_plug_in_callback_query_handler(event):
+        statustext = "Thanks for clicking here \n\nTeleBot Inline Alive"
+        reply_pop_up_alert = statustext
+        await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 def paginate_help(page_number, loaded_plugins, prefix):
     number_of_rows = 10
