@@ -14,7 +14,7 @@ from pathlib import Path
 from telethon import events
 from time import gmtime, strftime
 from userbot.uniborgConfig import Config
-from userbot import LOAD_PLUG, LOGS, CMD_LIST, SUDO_LIST, bot
+from userbot import LOAD_PLUG, LOGS, CMD_LIST, SUDO_LIST, APP_ID, TGBOT_TOKEN, API_HASH, bot
 def command(**args):
     args["func"] = lambda e: e.via_bot_id is None
     
@@ -105,7 +105,7 @@ def load_module(shortname):
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = bot
-        mod.tgbot = bot.tgbot
+        mod.tgbot = self.tgbot
         mod.Var = Var
         mod.command = command
         mod.logger = logging.getLogger(shortname)
@@ -120,7 +120,7 @@ def load_module(shortname):
         sys.modules["userbot.plugins."+shortname] = mod
         print("Successfully (re)imported "+shortname)
 
-            bot.tgbot = TelegramClient(
+            self.tgbot = TelegramClient(
                 "TGBOT_TOKEN",
                 api_id=APP_ID,
                 api_hash=API_HASH

@@ -8,7 +8,7 @@ from userbot import CMD_LIST
 import io
 
 if Var.TGBOT_USERNAME is not None and tgbot is not None:
-    @bot.tgbot.on(events.InlineQuery)  # pylint:disable=E0602
+    @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
     async def inline_handler(event):
         builder = event.builder
         result = None
@@ -24,7 +24,7 @@ if Var.TGBOT_USERNAME is not None and tgbot is not None:
                 link_preview=False
             )
         await event.answer([result] if result else None)
-    @bot.tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+    @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
         data=re.compile(b"helpme_next\((.+?)\)")
     ))
     async def on_plug_in_callback_query_handler(event):
@@ -40,7 +40,7 @@ if Var.TGBOT_USERNAME is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
-    @bot.tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+    @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
         data=re.compile(b"helpme_prev\((.+?)\)")
     ))
     async def on_plug_in_callback_query_handler(event):
@@ -57,7 +57,7 @@ if Var.TGBOT_USERNAME is not None and tgbot is not None:
         else:
             reply_pop_up_alert = "Get your hands off Me!!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-    @bot.tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+    @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
         data=re.compile(b"us_plugin_(.*)")
     ))
     async def on_plug_in_callback_query_handler(event):
@@ -88,7 +88,7 @@ if Var.TGBOT_USERNAME is not None and tgbot is not None:
                     caption=plugin_name
                 )
 
-    @bot.tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"istatus"))) #for later use
+    @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"istatus"))) #for later use
     async def on_plug_in_callback_query_handler(event):
         statustext = "Thanks for clicking here \n\nInline Alive"
         reply_pop_up_alert = statustext
