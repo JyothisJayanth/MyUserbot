@@ -30,7 +30,6 @@ httplib2
 humanize
 lxml
 oauth2client
-psycopg2
 psycopg2-binary
 PyLyrics
 pySmartDL
