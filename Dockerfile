@@ -72,10 +72,10 @@ RUN apt -qq install -y --no-install-recommends \
 RUN pip3 install --upgrade pip setuptools
 # adds files from your Docker client’s current directory.
 RUN git clone https://github.com/JyothisJayanth/MyUserbot /root/userbot
-RUN pip3 install -r requirements.txt
 RUN mkdir /root/userbot/bin/
 WORKDIR /root/userbot/
 RUN chmod +x /usr/local/bin/*
 # install requirements, inside the container
+RUN pip3 install -r requirements.txt
 # specifies what command to run within the container.
 CMD ["python3", "-m", "userbot"]
