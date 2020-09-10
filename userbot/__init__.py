@@ -177,7 +177,8 @@ for binary, path in binaries.items():
     downloader.start()
     os.chmod(path, 0o755)
 
-BOT_TOKEN = os.environ.get("TGBOT_USERNAME", None)
+TGBOT_TOKEN = os.environ.get("TGBOT_TOKEN", None)
+TGBOT_USERNAME = os.environ.get("TGBOT_USERNAME", None)
 # Global Variables
 COUNT_MSG = 0
 USERS = {}
@@ -242,10 +243,10 @@ def paginate_help(page_number, loaded_modules, prefix):
 with bot:
     try:
         tgbot = TelegramClient(
-            "TG_BOT_TOKEN",
+            "TGBOT_TOKEN",
             api_id=APP_ID,
             api_hash=API_HASH).start(
-            bot_token=BOT_TOKEN)
+            bot_token=TGBOT_TOKEN)
 
         dugmeler = CMD_HELP
         me = bot.get_me()
@@ -263,12 +264,12 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@UserButt"):
+            if event.query.user_id == uid and query.startswith("@Wrench's UserBot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.article(
                     "Please Use Only With .help Command",
                     text="{}\nTotal loaded modules: {}".format(
-                        "UserButt modules helper.\n",
+                        "Wrench's UserBot modules helper.\n",
                         len(dugmeler),
                     ),
                     buttons=buttons,
@@ -276,22 +277,22 @@ with bot:
                 )
             elif query.startswith("tb_btn"):
                 result = builder.article(
-                    "UserButt Helper",
+                    "Wrench's UserBot Helper",
                     text="List of Modules",
                     buttons=[],
                     link_preview=True)
             else:
                 result = builder.article(
-                    "UserButt",
+                    "Wrench's UserBot",
                     text="""You can convert your account to bot and use them. Remember, you can't manage someone else's bot! All installation details are explained from GitHub address below.""",
                     buttons=[
                         [
                             custom.Button.url(
                                 "GitHub Repo",
-                                "https://github.com/KeselekPermen69/userbutt"),
+                                "https://github.com/JyothisJayanth/MyUserbot"),
                             custom.Button.url(
                                 "Support",
-                                "https://t.me/UserBotIndo")],
+                                "https://t.me/FridayOT")],
                     ],
                     link_preview=False,
                 )

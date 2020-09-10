@@ -6,7 +6,6 @@ from userbot.utils import admin_cmd
 from userbot.__init__ import StartTime
 import time
 
-
 def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
@@ -39,6 +38,11 @@ def get_readable_time(seconds: int) -> str:
 
 
 
+#@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"istatus"))) #\\\\\\\for later use /////////
+#    async def on_plug_in_callback_query_handler(event):
+#        statustext = f"🏓Ping speed: {ms}\n😵Uptime: {uptime}"
+#        reply_pop_up_alert = statustext
+#        await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 #@command(pattern="^.ping$")
 @borg.on(admin_cmd(pattern="ping$"))
