@@ -179,6 +179,7 @@ for binary, path in binaries.items():
 
 TGBOT_TOKEN = os.environ.get("TGBOT_TOKEN", None)
 TGBOT_USERNAME = os.environ.get("TGBOT_USERNAME", None)
+SUDO_COMMAND_HAND_LER = os.environ.get("SUDO_COMMAND_HAND_LER", "\.")
 # Global Variables
 COUNT_MSG = 0
 USERS = {}

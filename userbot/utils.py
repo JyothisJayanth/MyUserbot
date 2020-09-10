@@ -9,12 +9,15 @@ import asyncio
 import datetime
 import traceback
 import importlib
+from userbot import bot
+from traceback import format_exc
+import subprocess
 from var import Var
 from pathlib import Path
 from telethon import events
 from time import gmtime, strftime
 from userbot.uniborgConfig import Config
-from userbot import LOAD_PLUG, LOGS, CMD_LIST, SUDO_LIST, APP_ID, TGBOT_TOKEN, API_HASH, bot
+from userbot import LOAD_PLUG, LOGS, CMD_LIST, SUDO_LIST, APP_ID, TGBOT_TOKEN, API_HASH, SUDO_COMMAND_HAND_LER, bot
 def command(**args):
     args["func"] = lambda e: e.via_bot_id is None
     
@@ -184,18 +187,6 @@ def admin_cmd(pattern=None, **args):
 
 """ Userbot module for managing events.
  One of the main components of the userbot. """
-
-from telethon import events
-import asyncio
-from userbot import bot
-from traceback import format_exc
-from time import gmtime, strftime
-import math
-import subprocess
-import sys
-import traceback
-import datetime
-
 
 def register(**args):
     """ Register a new event. """
@@ -370,20 +361,6 @@ def humanbytes(size: int) -> str:
         raised_to_pow += 1
     return str(round(size, 2)) + " " + dict_power_n[raised_to_pow] + "B"
 
-
-def time_formatter(seconds: int) -> str:
-    minutes, seconds = divmod(seconds, 60)
-    hours, minutes = divmod(minutes, 60)
-    days, hours = divmod(hours, 24)
-    tmp = (
-        ((str(days) + " day(s), ") if days else "") +
-        ((str(hours) + " hour(s), ") if hours else "") +
-        ((str(minutes) + " minute(s), ") if minutes else "") +
-        ((str(seconds) + " second(s), ") if seconds else "")
-    )
-    return tmp[:-2]
-
-
 def human_to_bytes(size: str) -> int:
     units = {
         "M": 2**20, "MB": 2**20,
@@ -411,8 +388,8 @@ def sudo_cmd(pattern=None, **args):
             # special fix for snip.py
             args["pattern"] = re.compile(pattern)
         else:
-            args["pattern"] = re.compile(Config.SUDO_COMMAND_HAND_LER + pattern)
-            reg =Config.SUDO_COMMAND_HAND_LER[1]
+            args["pattern"] = re.compile(SUDO_COMMAND_HAND_LER + pattern)
+            reg =SUDO_COMMAND_HAND_LER[1]
             cmd = (reg +pattern).replace("$", "").replace("\\", "").replace("^", "")
             try:
                 SUDO_LIST[file_test].append(cmd)
