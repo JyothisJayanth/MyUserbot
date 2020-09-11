@@ -4,7 +4,7 @@ import json
 import random
 import re
 from telethon import events, errors, custom
-from userbot import CMD_LIST
+from userbot import CMD_LIST, bot
 import io
 
 if Var.TGBOT_USERNAME is not None and tgbot is not None:
