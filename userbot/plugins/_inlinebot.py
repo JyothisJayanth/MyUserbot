@@ -4,8 +4,26 @@ import json
 import random
 import re
 from telethon import events, errors, custom
-from userbot import CMD_LIST, bot
+from userbot import CMD_LIST, API_HASH, TGBOT_TOKEN, APP_ID, TGBOT_USERNAME, CMD_HELP, bot
 import io
+
+if STRING_SESSION:
+    # pylint: disable=invalid-name
+    bot = TelegramClient(StringSession(STRING_SESSION), APP_ID, API_HASH)
+else:
+    # pylint: disable=invalid-name
+    bot = TelegramClient("userbot", APP_ID, API_HASH)
+with bot:
+    try:
+        tgbot = TelegramClient(
+            "TGBOT_TOKEN",
+            api_id=APP_ID,
+            api_hash=API_HASH).start(
+            bot_token=TGBOT_TOKEN)
+
+        dugmeler = CMD_HELP
+        me = bot.get_me()
+        uid = me.id
 
 if Var.TGBOT_USERNAME is not None and tgbot is not None:
     @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
