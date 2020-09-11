@@ -1,11 +1,11 @@
-"""Userbot help command"""
+"""Extracted by @EverythingSuckz"""
 
 from userbot import CMD_HELP
 from userbot.events import register
 
 
 @borg.on(admin_cmd(pattern="chelp(?: |$)(.*)"))
-@borg.on(sudo_cmd(pattern="chelp(?: |$)(.*),allow_sudo=True))
+@borg.on(sudo_cmd(pattern="chelp(?: |$)(.*)", allow_sudo=True))
 async def help(event):
     """For .chelp command"""
     args = event.pattern_match.group(1).lower()

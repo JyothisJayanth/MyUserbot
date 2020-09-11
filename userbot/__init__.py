@@ -199,7 +199,7 @@ if STRING_SESSION:
     bot = TelegramClient(StringSession(STRING_SESSION), APP_ID, API_HASH)
 else:
     # pylint: disable=invalid-name
-    bot = TelegramClient("userbot", APP_ID, API_HASH)
+    bot = TelegramClient("tgbot", APP_ID, API_HASH)
 
 
 async def check_botlog_chatid():
