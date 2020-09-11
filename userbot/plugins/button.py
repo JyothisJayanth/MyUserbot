@@ -1,10 +1,10 @@
 """
 Create Button Posts imported from uniborg
-modified for catuserbot by @sandy1709
+ported from catuserbot by @EverythingSuckz
 """
 import os
 import re
-from userbot. import CMD_HELP
+from userbot import CMD_HELP
 from telethon import Button
 from userbot.utils import admin_cmd, sudo_cmd, edit_or_reply
 
