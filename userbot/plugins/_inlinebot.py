@@ -7,12 +7,7 @@ from telethon import events, errors, custom
 from userbot import CMD_LIST, API_HASH, TGBOT_TOKEN, APP_ID, TGBOT_USERNAME, CMD_HELP, bot
 import io
 
-if STRING_SESSION:
-    # pylint: disable=invalid-name
-    bot = TelegramClient(StringSession(STRING_SESSION), APP_ID, API_HASH)
-else:
-    # pylint: disable=invalid-name
-    bot = TelegramClient("userbot", APP_ID, API_HASH)
+
 with bot:
     try:
         tgbot = TelegramClient(
@@ -25,92 +20,91 @@ with bot:
         me = bot.get_me()
         uid = me.id
 
-if Var.TGBOT_USERNAME is not None and tgbot is not None:
-    @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
-    async def inline_handler(event):
-        builder = event.builder
-        result = None
-        query = event.text
-        if event.query.user_id == bot.uid and query.startswith("Userbot"):
-            rev_text = query[::-1]
-            buttons = paginate_help(0, CMD_LIST, "helpme")
-            result = builder.article(
-                "© Userbot Help for @WhySooSerious",
-                text="{}\nCurrently Loaded Plugins: {}".format(
-                    query, len(CMD_LIST)),
-                buttons=buttons,
-                link_preview=False
-            )
-        await event.answer([result] if result else None)
-    @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"helpme_next\((.+?)\)")
-    ))
-    async def on_plug_in_callback_query_handler(event):
-        if event.query.user_id == bot.uid:  # pylint:disable=E0602
-            current_page_number = int(
-                event.data_match.group(1).decode("UTF-8"))
-            buttons = paginate_help(
-                current_page_number + 1, CMD_LIST, "helpme")
-            # https://t.me/TelethonChat/115200
-            await event.edit(buttons=buttons)
-        else:
-            reply_pop_up_alert = "Get your Hands off Me!"
-            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-
-    @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"helpme_prev\((.+?)\)")
-    ))
-    async def on_plug_in_callback_query_handler(event):
-        if event.query.user_id == bot.uid:  # pylint:disable=E0602
-            current_page_number = int(
-                event.data_match.group(1).decode("UTF-8"))
-            buttons = paginate_help(
-                current_page_number - 1,
-                CMD_LIST,  # pylint:disable=E0602
-                "helpme"
-            )
-            # https://t.me/TelethonChat/115200
-            await event.edit(buttons=buttons)
-        else:
-            reply_pop_up_alert = "Get your hands off Me!!"
-            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-    @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"us_plugin_(.*)")
-    ))
-    async def on_plug_in_callback_query_handler(event):
-        plugin_name = event.data_match.group(1).decode("UTF-8")
-        help_string = ""
-        try:
-            for i in CMD_LIST[plugin_name]:
-                help_string += i
-                help_string += "\n"
-        except:
-            pass
-        if help_string is "":
-            reply_pop_up_alert = "{} is useless".format(plugin_name)
-        else:
-            reply_pop_up_alert = help_string
-        reply_pop_up_alert += "\n Use .unload {} to remove this plugin\n\
-            © @WhySooSerious".format(plugin_name)
-        try:
-            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-        except:
-            with io.BytesIO(str.encode(reply_pop_up_alert)) as out_file:
-                out_file.name = "{}.txt".format(plugin_name)
-                await event.client.send_file(
-                    event.chat_id,
-                    out_file,
-                    force_document=True,
-                    allow_cache=False,
-                    caption=plugin_name
+        @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
+        async def inline_handler(event):
+            builder = event.builder
+            result = None
+            query = event.text
+            if event.query.user_id == bot.uid and query.startswith("Userbot"):
+                rev_text = query[::-1]
+                buttons = paginate_help(0, CMD_LIST, "helpme")
+                result = builder.article(
+                    "© Userbot Help for @WhySooSerious",
+                    text="{}\nCurrently Loaded Plugins: {}".format(
+                        query, len(CMD_LIST)),
+                    buttons=buttons,
+                    link_preview=False
                 )
+            await event.answer([result] if result else None)
+        @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+            data=re.compile(b"helpme_next\((.+?)\)")
+        ))
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == bot.uid:  # pylint:disable=E0602
+                current_page_number = int(
+                    event.data_match.group(1).decode("UTF-8"))
+                buttons = paginate_help(
+                    current_page_number + 1, CMD_LIST, "helpme")
+                # https://t.me/TelethonChat/115200
+                await event.edit(buttons=buttons)
+            else:
+                reply_pop_up_alert = "Get your Hands off Me!"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-    @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"istatus"))) #for later use
-    async def on_plug_in_callback_query_handler(event):
-        statustext = "Thanks for clicking here \n\nInline Alive"
-        reply_pop_up_alert = statustext
-        await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+            data=re.compile(b"helpme_prev\((.+?)\)")
+        ))
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == bot.uid:  # pylint:disable=E0602
+                current_page_number = int(
+                    event.data_match.group(1).decode("UTF-8"))
+                buttons = paginate_help(
+                    current_page_number - 1,
+                    CMD_LIST,  # pylint:disable=E0602
+                    "helpme"
+                )
+                # https://t.me/TelethonChat/115200
+                await event.edit(buttons=buttons)
+            else:
+                reply_pop_up_alert = "Get your hands off Me!!"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+        @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+            data=re.compile(b"us_plugin_(.*)")
+        ))
+        async def on_plug_in_callback_query_handler(event):
+            plugin_name = event.data_match.group(1).decode("UTF-8")
+            help_string = ""
+            try:
+                for i in CMD_LIST[plugin_name]:
+                    help_string += i
+                    help_string += "\n"
+            except:
+                pass
+            if help_string is "":
+                reply_pop_up_alert = "{} is useless".format(plugin_name)
+            else:
+                reply_pop_up_alert = help_string
+            reply_pop_up_alert += "\n Use .unload {} to remove this plugin\n\
+                © @WhySooSerious".format(plugin_name)
+            try:
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+            except:
+                with io.BytesIO(str.encode(reply_pop_up_alert)) as out_file:
+                    out_file.name = "{}.txt".format(plugin_name)
+                    await event.client.send_file(
+                        event.chat_id,
+                        out_file,
+                        force_document=True,
+                        allow_cache=False,
+                        caption=plugin_name
+                    )
+
+        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"istatus"))) #for later use
+        async def on_plug_in_callback_query_handler(event):
+            statustext = "Thanks for clicking here \n\nInline Alive"
+            reply_pop_up_alert = statustext
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 def paginate_help(page_number, loaded_plugins, prefix):
     number_of_rows = 10
