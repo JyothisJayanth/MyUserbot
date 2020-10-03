@@ -4,9 +4,9 @@ ported from catuserbot by @EverythingSuckz
 """
 import os
 import re
-from userbot import CMD_HELP
+from userbot import CMD_HELP, TGBOT_USERNAME
 from telethon import Button
-from userbot.utils import admin_cmd, sudo_cmd, edit_or_reply
+from userbot.utils import admin_cmd, sudo_cmd, edit_or_reply, bot
 
 # regex obtained from:
 # https://github.com/PaulSonOfLars/tgbot/blob/master/tg_bot/modules/helper_funcs/string_handling.py#L23
@@ -86,7 +86,7 @@ async def _(event):
         await edit_or_reply(event, "`Give me some thing to write in bot inline`")
         return
     everythingsuckz = "Inline buttons " + everythingsuckz
-    tgbotusername = Var.TG_BOT_USER_NAME_BF_HER
+    tgbotusername = TGBOT_USERNAME
     results = await bot.inline_query(
         tgbotusername,
         everythingsuckz
