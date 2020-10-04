@@ -212,14 +212,15 @@ async def check_botlog_chatid():
             "Your account doesn't have rights to send messages to BOTLOG_CHATID "
             "group. Check if you typed the Chat ID correctly.")
         quit(1)
-def paginate_help(page_number, loaded_modules, prefix):
+
+def paginate_help(page_number, loaded_plugins, prefix):
     number_of_rows = 5
     number_of_cols = 2
-    helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
-    helpable_modules = sorted(helpable_modules)
+    helpable_plugins = [p for p in loaded_plugins if not p.startswith("_")]
+    helpable_plugins = sorted(helpable_plugins)
     modules = [
-        custom.Button.inline("{} {}".format("🔹", x), data="ub_modul_{}".format(x))
-        for x in helpable_modules
+        custom.Button.inline("{} {}".format("🔆", x), data="us_plugin_{}".format(x))
+        for x in helpable_plugins
     ]
     pairs = list(zip(modules[::number_of_cols], modules[1::number_of_cols]))
     if len(modules) % number_of_cols == 1:

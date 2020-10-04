@@ -4,7 +4,7 @@ import json
 import random
 import re
 from telethon import events, errors, custom
-from userbot import CMD_LIST, API_HASH, TGBOT_TOKEN, APP_ID, TGBOT_USERNAME, CMD_HELP, bot
+from userbot import CMD_LIST, API_HASH, TGBOT_TOKEN, APP_ID, TGBOT_USERNAME, CMD_HELP, bot, paginate_help
 import io
 
 
@@ -69,6 +69,8 @@ with bot:
             else:
                 reply_pop_up_alert = "Get your hands off Me!!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+
         @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
             data=re.compile(b"us_plugin_(.*)")
         ))
@@ -93,40 +95,9 @@ with bot:
                 with io.BytesIO(str.encode(reply_pop_up_alert)) as out_file:
                     out_file.name = "{}.txt".format(plugin_name)
                     await event.client.send_file(
-                        event.chat_id,
-                        out_file,
+                        event.chat_id, out_file,
                         force_document=True,
                         allow_cache=False,
                         caption=plugin_name
                     )
-
-        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"istatus"))) #for later use
-        async def on_plug_in_callback_query_handler(event):
-            statustext = "Thanks for clicking here \n\nInline Alive"
-            reply_pop_up_alert = statustext
-            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-def paginate_help(page_number, loaded_plugins, prefix):
-    number_of_rows = 10
-    number_of_cols = 2
-    helpable_plugins = []
-    for p in loaded_plugins:
-        if not p.startswith("_"):
-            helpable_plugins.append(p)
-    helpable_plugins = sorted(helpable_plugins)
-    modules = [custom.Button.inline(
-        "{} {}".format("🔆", x),
-        data="us_plugin_{}".format(x))
-        for x in helpable_plugins]
-    pairs = list(zip(modules[::number_of_cols], modules[1::number_of_cols]))
-    if len(modules) % number_of_cols == 1:
-        pairs.append((modules[-1],))
-    max_num_pages = ceil(len(pairs) / number_of_rows)
-    modulo_page = page_number % max_num_pages
-    if len(pairs) > number_of_rows:
-        pairs = pairs[modulo_page * number_of_rows:number_of_rows * (modulo_page + 1)] + \
-            [
-            (custom.Button.inline("<< Previous", data="{}_prev({})".format(prefix, modulo_page)),
-             custom.Button.inline("Next >>", data="{}_next({})".format(prefix, modulo_page)))
-        ]
-    return pairs
+bot.start()
